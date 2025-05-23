@@ -8,7 +8,7 @@
 </head>
 <body>
 	<form action="gugudan_result.jsp" method="get">
-		<input type="number" name="dan">
+		<input type="number" name="dan" max="9" min="2">
 		<button>구구단 출력</button>
 	</form>
 </body>
