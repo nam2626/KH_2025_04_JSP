@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+	form 태그
+		사용자가 입력한 데이터들을 서버로 전송해 주는 태그
+		action : 데이터를 전송할 서버페이지 경로
+		method : 데이터 전송방식
+			get : url에 데이터를 포함해서 보내는 방식
+			post : http/https 메세지의 body에 포함해서 데이터를 보내는 방식
+	input 태그
+		사용자로부터 데이터를 직접적으로 입력 받는 태그
+		입력받는 형식은 type 속성으로 결정	
+	name 속성 : 서버로 데이터를 보낼때, 해당 데이터가 어떤 데이터인지 알려주는 속성,
+                속성값으로 어떤 데이터인지 서버 프로그램에서 구분함
+ -->
+ 	<form action="data_result.jsp" method="get">
+ 		<input type="text" name="txt"><br>
+ 		<input type="date" name="today"> 
+ 		<button>전송</button>
+ 	</form>
+</body>
+</html>
+
+
+
+
+
