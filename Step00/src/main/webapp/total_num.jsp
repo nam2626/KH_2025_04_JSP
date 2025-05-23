@@ -18,9 +18,18 @@
 			num = Integer.parseInt(n);
 		}
 		//데이터 확인
-		//	System.out.println(num); 
+		//	System.out.println(num);
+		int sum = 0;
+		for(int i=1;i<=num;i++){
+			sum += i;		
 	%>
-	
+			<p><%=i %></p>
+			<hr>
+	<%
+		}
+	%>
+	<!-- 총합 : ???? -->
+		<p><%=sum %></p>
 </body>
 </html>
 
