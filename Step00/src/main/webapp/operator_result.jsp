@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<!-- n1, n2, op 값 받아서 해당 연산결과를 출력 -->
 	<%=request.getParameter("op") %>
 </body>
 </html>
