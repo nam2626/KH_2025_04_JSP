@@ -17,10 +17,21 @@
 		입력받는 형식은 type 속성으로 결정	
 	name 속성 : 서버로 데이터를 보낼때, 해당 데이터가 어떤 데이터인지 알려주는 속성,
                 속성값으로 어떤 데이터인지 서버 프로그램에서 구분함
+                
+        autofocus : 페이지가 로딩되면 자동으로 포커스가 해당 input 태그로 이동
+        placeholder : 입력할 내용의 힌트, 입력하면 힌트는 사라짐
+        required : 반드시 입력해야 하는 필수 입력 항목
+        maxlength : 입력할 수 있는 최대 글자 수
+        minlength : 입력을 해야되는 최소 글자 수
+        value : input 태그에 미리 입력할 값, 기본값
+        readonly : 해당 input 태그를 읽기 전용으로 설정, 서버로 데이터 전송 O
+        disabled : 해당 input 태그를 비활성화, 서버로 데이터 전송 X
  -->
  	<form action="data_result.jsp" method="get">
- 		<input type="text" name="txt"><br>
- 		<input type="date" name="today"> 
+ 		<input type="text" name="txt" autofocus maxlength="10" minlength="5"><br>
+ 		<input type="date" name="today" value="2024-01-12" readonly> <br>
+ 		<input type="password" name="pwd" placeholder="암호를 입력하세요" required><br>
+ 		<input type="number" name="num" value="33" disabled>
  		<button>전송</button>
  	</form>
 </body>
