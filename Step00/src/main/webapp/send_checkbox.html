@@ -7,10 +7,14 @@
 <body>
 	<form action="checkbox_result.jsp" method="get">
 		<p>취미생활 선택</p>
-		<input type="checkbox" name="hobby" value="game"> 게임<br>
-		<input type="checkbox" name="hobby" value="movie"> 영화감상<br>
-		<input type="checkbox" name="hobby" value="hiking"> 등산<br>
-		<input type="checkbox" name="hobby" value="fishing"> 낚시<br>
+		<input type="checkbox" name="hobby" value="game">
+		<label for="h1">게임</label><br>
+		<input type="checkbox" name="hobby" id="h2" value="movie"> 
+		<label for="h2">영화감상</label><br>
+		<input type="checkbox" name="hobby" id="h3" value="hiking"> 
+		<label for="h3">등산</label><br>
+		<input type="checkbox" name="hobby" id="h4" value="fishing"> 
+		<label for="h4">낚시</label><br>
 		<button>취미 전송</button>
 	</form>
 </body>
