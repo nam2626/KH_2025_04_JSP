@@ -20,6 +20,10 @@
 		<li>${sessionScope.dto.boardMemberName }</li>
 		<li>${sessionScope.dto.boardMemberNick}</li>
 	</ul>
+	<!-- 영역(scope) 쓰지 않으면 자동 검색
+		page -> request -> session -> application
+	 -->
+	<p>${msg }</p>
 </body>
 </html>
 

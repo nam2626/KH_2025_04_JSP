@@ -37,7 +37,7 @@ public class JSTLServlet extends HttpServlet {
 		
 		request.setAttribute("list", list);
 		request.setAttribute("age", 44);
-		request.setAttribute("msg", "request 메세지 내용");
+//		request.setAttribute("msg", "request 메세지 내용");
 		
 		request.getRequestDispatcher("./jstl_el.jsp").forward(request, response);
 	}
