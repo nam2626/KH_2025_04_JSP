@@ -36,7 +36,7 @@ public class JSTLServlet extends HttpServlet {
 		list.add(new BoardMemberDTO("A0004", "박영희", "123456", "Park"));
 		
 		request.setAttribute("list", list);
-		request.setAttribute("age", 44);
+		request.setAttribute("age", 23);
 //		request.setAttribute("msg", "request 메세지 내용");
 		
 		request.getRequestDispatcher("./jstl_el.jsp").forward(request, response);

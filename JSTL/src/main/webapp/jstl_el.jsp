@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,8 +25,48 @@
 		page -> request -> session -> application
 	 -->
 	<p>${msg }</p>
+	<hr>
+	<h2>jstl(JSP Standard Tag Library)</h2>
+	<!-- set : 변수 선언해서 초기화 -->
+	<c:set var="num" value="1000"></c:set>
+	<c:set var="obj" value="${sessionScope.dto }" scope="request"/>
+	<!-- out : 출력 -->
+	<p><c:out value="${ num}" default="숫자 없음"></c:out></p>
+	<p><c:out value="${ num1}" default="숫자 없음"></c:out></p>
+	<p>${requestScope.obj }</p>
+	<h3>if문, test에 조건식, 하나의 조건문에만 사용, else if, else가 없음</h3>
+	<c:if test="${age >= 20 }">
+		<p>성인입니다.</p>
+	</c:if>
+	<c:if test="${age < 20 }">
+		<p>미성년자입니다.</p>
+	</c:if>
+	<h3>choose, when, otherwise - 여러개의 조건문</h3>
+	<c:choose>
+		<c:when test="${age >= 20 && age < 30 }">
+			<p>20대 입니다.</p>
+		</c:when>
+		<c:when test="${age >= 30 && age < 40 }">
+			<p>30대 입니다.</p>
+		</c:when>
+		<c:otherwise>
+			<!-- 모든 조건이 거짓일때  -->
+			<p>40대 이상 입니다.</p>
+		</c:otherwise>
+	</c:choose>
+	
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
 
 
 
