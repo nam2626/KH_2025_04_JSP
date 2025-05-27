@@ -2,6 +2,7 @@ package servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -27,6 +28,15 @@ public class CookieServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String txt = request.getParameter("text");//쿠키에 저장할 데이터
+		
+		//쿠키 셋팅
+		Cookie cookie = new Cookie("keyword", txt);
+		//쿠키 유효시간 설정(초단위)
+		cookie.setMaxAge(180);//3분
+		response.addCookie(cookie);//response 객체에 쿠키 추가
+		
+		//페이지 이동 - cookie_result.jsp
+		request.getRequestDispatcher("./cookie_result.jsp").forward(request, response);
 	}
 
 	/**
