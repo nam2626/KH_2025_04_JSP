@@ -31,9 +31,14 @@ public class CookieServlet extends HttpServlet {
 		
 		//쿠키 셋팅
 		Cookie cookie = new Cookie("keyword", txt);
+		Cookie ageCookie = new Cookie("age", "30");
+		
 		//쿠키 유효시간 설정(초단위)
 		cookie.setMaxAge(180);//3분
 		response.addCookie(cookie);//response 객체에 쿠키 추가
+		
+		ageCookie.setMaxAge(180);
+		response.addCookie(ageCookie);
 		
 		//페이지 이동 - cookie_result.jsp
 		request.getRequestDispatcher("./cookie_result.jsp").forward(request, response);
