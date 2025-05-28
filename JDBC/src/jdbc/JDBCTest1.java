@@ -42,10 +42,6 @@ public class JDBCTest1 {
 		}
 		
 		
-		
-		//4. SQL문 실행
-		
-		//5. 결과 출력
 	}
 
 }
