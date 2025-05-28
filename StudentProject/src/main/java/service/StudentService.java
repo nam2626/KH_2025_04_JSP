@@ -1,6 +1,9 @@
 package service;
 
+import java.util.ArrayList;
+
 import dao.StudentDAO;
+import dto.StudentDTO;
 
 public class StudentService {
 	private static StudentService instance = new StudentService();
@@ -15,4 +18,10 @@ public class StudentService {
 		return instance;
 	}
 
+	public ArrayList<StudentDTO> selectAllStudent() {
+		return dao.selectAllStudent();
+	}
+
 }
+
+
