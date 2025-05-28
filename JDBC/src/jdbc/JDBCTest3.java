@@ -2,6 +2,7 @@ package jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
@@ -26,16 +27,15 @@ public class JDBCTest3 {
 			try(Connection conn = 
 					DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe",
 							"c##scott","123456")){
-//				conn.setAutoCommit(false); //자동 커밋 해제
-				//학생 데이터 하나 추가하는 SQL문 작성
-				String sql = "insert into student values("
-						+ "'" + sno + "'"+ ",'" + sname + "'" + "," + score
-						+ ",'" + gender + "'" + ",'" + mno + "'"
-						+ ")";
-				try(Statement stmt = conn.createStatement()){
-					int count = stmt.executeUpdate(sql);
+				String sql = "insert into student values(?,?,?,?,?)";
+				try(PreparedStatement stmt = conn.prepareStatement(sql)){
+					stmt.setString(1, sno);
+					stmt.setString(2, sname);
+					stmt.setDouble(3, score);
+					stmt.setString(4, gender);
+					stmt.setString(5, mno);
+					int count = stmt.executeUpdate();
 					System.out.println(count + "건 적용되었습니다.");
-					//conn.commit(); // 커밋
 				}
 				
 			} catch (SQLException e) {
