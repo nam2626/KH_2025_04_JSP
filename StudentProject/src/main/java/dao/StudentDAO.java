@@ -51,4 +51,15 @@ public class StudentDAO {
 		return list;
 	}
 
+	public int deleteStudent(String sno) {
+		return 0;
+	}
+
 }
+
+
+
+
+
+
+

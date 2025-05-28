@@ -22,6 +22,12 @@ public class StudentService {
 		return dao.selectAllStudent();
 	}
 
+	public int deleteStudent(String sno) {
+		if(sno == null)
+			return 0;
+		return dao.deleteStudent(sno);
+	}
+
 }
 
 

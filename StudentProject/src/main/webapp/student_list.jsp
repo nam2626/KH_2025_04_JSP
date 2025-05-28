@@ -30,7 +30,7 @@
 				<td>${std.mname }</td>
 				<td>${std.score }</td>
 				<td>${std.gender }</td>
-				<td></td>
+				<td><a href="./delete.do?sno=${std.sno }">삭제</a></td>
 			</tr>
 		</c:forEach>
 	</table>
