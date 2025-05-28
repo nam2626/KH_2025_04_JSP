@@ -52,7 +52,15 @@ public class StudentDAO {
 	}
 
 	public int deleteStudent(String sno) {
-		return 0;
+		int count = 0;
+		String sql = "delete from student where sno = ?";
+		try (PreparedStatement pstmt = manager.getConnection().prepareStatement(sql)) {
+			pstmt.setString(1, sno);
+			count = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return count;
 	}
 
 }
