@@ -32,7 +32,7 @@ public class JDBCTest1 {
 				System.out.println(
 						rs.getString(1) + " " + rs.getString("sname") +
 						" " + rs.getDouble("score") + " " + rs.getString("gender")
-						);
+						+ " " + rs.getString("mno"));
 			}
 			
 		} catch (ClassNotFoundException e) {
