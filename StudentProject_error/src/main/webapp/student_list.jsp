@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="./emplate/header.jsp"></jsp:include>
+	<jsp:include page="./template/header.jsp"></jsp:include>
 	<h2>학생 정보 리스트</h2>
 	<table>
 		<tr>

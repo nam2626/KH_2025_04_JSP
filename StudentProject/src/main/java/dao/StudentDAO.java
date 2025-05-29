@@ -107,6 +107,7 @@ public class StudentDAO {
 		String sql = "SELECT * FROM student where sno = ?";
 		try (PreparedStatement pstmt = manager.getConnection().prepareStatement(sql)) {
 			pstmt.setString(1, sno);
+			
 			try(ResultSet rs = pstmt.executeQuery()){
 				if(rs.next()) {
 					String sname = rs.getString("sname");

@@ -10,13 +10,13 @@
 <body>
 	<jsp:include page="./template/header.jsp"></jsp:include>
 	<!-- 학번, 이름, 학과명, 성별, 평점 입력받는 폼-->
-	<form action="./insertStudent3.do" method="post">
-		<input type="text" name="sno1" placeholder="학번을 입력하세요"><br>
+	<form action="./insertStudent.do" method="post">
+		<input type="text" name="sno" placeholder="학번을 입력하세요"><br>
 		<input type="text" name="sname" placeholder="이름을 입력하세요"><br>
 		<select name="mno">
 			<option value="-">-- 학과 선택 --</option>
 			<!-- jstl로 학과 목록을 출력 -->
-			<c:forEach var="m" items="${majorlist }">
+			<c:forEach var="m" items="${majorList }">
 				<option value="${m.mno }">${m.mname }</option>
 			</c:forEach>
 		</select><br>

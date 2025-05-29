@@ -34,6 +34,7 @@ public class StudentService {
 	}
 
 	public int insertStudent(StudentDTO dto) {
+		System.out.println(dto);
 		return dao.insertStudent(dto);
 	}
 

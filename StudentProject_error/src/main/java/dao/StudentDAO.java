@@ -27,7 +27,7 @@ public class StudentDAO {
 		ArrayList<StudentDTO> list = new ArrayList<StudentDTO>();
 		// 전체 학생 정보를 리스트에 담아서 리턴
 		// 1. sql문 작성
-		String sql = "SELECT * FROM student s INNER JOIN major m ON s.m_no = m.mno";
+		String sql = "SELECT * FROM student s INNER JOIN major m ON s.mno = m.mno";
 		// 2. PreparedStatement 생성
 		try (PreparedStatement pstmt = manager.getConnection().prepareStatement(sql)) {
 			// 3. SQL 실행
@@ -37,7 +37,7 @@ public class StudentDAO {
 					String sno = rs.getString("sno");
 					String sname = rs.getString("sname");
 					double score = rs.getDouble("score");
-					String gender = rs.getString("gender1");
+					String gender = rs.getString("gender");
 					String mno = rs.getString("mno");
 					String mname = rs.getString("mname");
 					
@@ -105,7 +105,7 @@ public class StudentDAO {
 		StudentDTO student = null;
 		System.out.println(sno);
 		String sql = "SELECT * FROM student"
-				+ "where sno = ?";
+				+ " where sno = ?";
 		try (PreparedStatement pstmt = manager.getConnection().prepareStatement(sql)) {
 			pstmt.setString(1, sno);
 			try(ResultSet rs = pstmt.executeQuery()){
@@ -128,7 +128,7 @@ public class StudentDAO {
 	public int updateStudent(StudentDTO dto) {
 		int count = 0;
 		String sql = "update student set sname = ?, score = ?, gender = ?, "
-				+ "mno = ?, where sno = ?";
+				+ "mno = ? where sno = ?";
 		try(PreparedStatement pstmt = 
 				manager.getInstance().getConnection().prepareStatement(sql)){
 			pstmt.setString(1, dto.getSname());

@@ -16,7 +16,7 @@
 			<option value="-">-- 학과 선택 --</option>
 			<!-- jstl로 학과 목록을 출력 -->
 			<c:forEach var="m" items="${majorList }">
-				<option value="${m.mno } ${m.mno == student.mno ? "selected" : "" }>${m.mname }</option>
+				<option value="${m.mno }" ${m.mno == student.mno ? "selected" : "" }>${m.mname }</option>
 			</c:forEach>
 		</select><br>
 		<input type="radio" name="gender" id="g1" value="M" ${student.gender == "M" ? "checked" : ""}><label for="g1">남</label>

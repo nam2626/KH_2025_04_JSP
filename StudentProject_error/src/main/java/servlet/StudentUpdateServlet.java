@@ -30,7 +30,7 @@ public class StudentUpdateServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	String sno = request.getParameter("sno1");
+    	String sno = request.getParameter("sno");
     	String sname = request.getParameter("sname");
     	String mno = request.getParameter("mno");
     	String gender = request.getParameter("gender");
