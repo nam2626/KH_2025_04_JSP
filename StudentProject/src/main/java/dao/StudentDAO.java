@@ -1,12 +1,12 @@
 package dao;
 
-import java.lang.reflect.Array;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import config.DBManager;
+import dto.MajorDTO;
 import dto.StudentDTO;
 
 public class StudentDAO {
@@ -63,6 +63,24 @@ public class StudentDAO {
 		return count;
 	}
 
+	public ArrayList<MajorDTO> selectAllMajor() {
+		ArrayList<MajorDTO> list = new ArrayList<MajorDTO>();
+		String sql = "SELECT * FROM major";
+		try (PreparedStatement pstmt = manager.getConnection().prepareStatement(sql)) {
+			try(ResultSet rs = pstmt.executeQuery()){
+				while(rs.next()) {
+					String mno = rs.getString("mno");
+					String mname = rs.getString("mname");
+					
+					list.add(new MajorDTO(mno, mname));
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		System.out.println(list);
+		return list;
+	}
 }
 
 

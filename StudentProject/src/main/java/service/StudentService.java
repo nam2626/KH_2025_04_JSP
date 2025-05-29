@@ -3,6 +3,7 @@ package service;
 import java.util.ArrayList;
 
 import dao.StudentDAO;
+import dto.MajorDTO;
 import dto.StudentDTO;
 
 public class StudentService {
@@ -26,6 +27,10 @@ public class StudentService {
 		if(sno == null)
 			return 0;
 		return dao.deleteStudent(sno);
+	}
+
+	public ArrayList<MajorDTO> selectAllMajor() {
+		return dao.selectAllMajor();
 	}
 
 }
