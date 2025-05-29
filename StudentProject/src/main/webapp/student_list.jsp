@@ -8,9 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="./all.do">전체 학생정보 조회</a>
-	<a href="./insertView.do">학생 정보 추가</a>
-	<hr>
+	<jsp:include page="./template/header.jsp"></jsp:include>
 	<h2>학생 정보 리스트</h2>
 	<table>
 		<tr>
