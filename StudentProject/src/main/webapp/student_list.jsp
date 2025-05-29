@@ -28,7 +28,11 @@
 				<td>${std.mname }</td>
 				<td>${std.score }</td>
 				<td>${std.gender }</td>
-				<td><a href="./delete.do?sno=${std.sno }">삭제</a></td>
+				<td>
+					<a href="./delete.do?sno=${std.sno }">삭제</a>
+					/
+					<a href="./updateView.do?sno=${std.sno }">수정</a>	
+				</td>
 			</tr>
 		</c:forEach>
 	</table>

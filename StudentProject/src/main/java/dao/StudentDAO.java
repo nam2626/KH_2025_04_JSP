@@ -100,6 +100,29 @@ public class StudentDAO {
 		
 		return count;
 	}
+
+	public StudentDTO selectStudent(String sno) {
+		StudentDTO student = null;
+		System.out.println(sno);
+		String sql = "SELECT * FROM student where sno = ?";
+		try (PreparedStatement pstmt = manager.getConnection().prepareStatement(sql)) {
+			pstmt.setString(1, sno);
+			try(ResultSet rs = pstmt.executeQuery()){
+				if(rs.next()) {
+					String sname = rs.getString("sname");
+					double score = rs.getDouble("score");
+					String gender = rs.getString("gender");
+					String mno = rs.getString("mno");
+					
+					student = new StudentDTO(sno, sname, score, gender, mno, null);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		System.out.println(student);
+		return student;
+	}
 }
 
 

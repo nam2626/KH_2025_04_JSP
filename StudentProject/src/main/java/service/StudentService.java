@@ -37,6 +37,10 @@ public class StudentService {
 		return dao.insertStudent(dto);
 	}
 
+	public StudentDTO selectStudent(String sno) {
+		return dao.selectStudent(sno);
+	}
+
 }
 
 
