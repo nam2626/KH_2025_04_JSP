@@ -123,6 +123,26 @@ public class StudentDAO {
 		System.out.println(student);
 		return student;
 	}
+
+	public int updateStudent(StudentDTO dto) {
+		int count = 0;
+		String sql = "update student set sname = ?, score = ?, gender = ?, "
+				+ "mno = ? where sno = ?";
+		try(PreparedStatement pstmt = 
+				manager.getInstance().getConnection().prepareStatement(sql)){
+			pstmt.setString(1, dto.getSname());
+			pstmt.setDouble(2, dto.getScore());
+			pstmt.setString(3, dto.getGender());
+			pstmt.setString(4, dto.getMno());
+			pstmt.setString(5, dto.getSno());
+			
+			count = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return count;
+	}
 }
 
 

@@ -16,11 +16,11 @@
 			<option value="-">-- 학과 선택 --</option>
 			<!-- jstl로 학과 목록을 출력 -->
 			<c:forEach var="m" items="${majorList }">
-				<option value="${m.mno }">${m.mname }</option>
+				<option value="${m.mno }" ${m.mno == student.mno ? "selected" : "" }>${m.mname }</option>
 			</c:forEach>
 		</select><br>
-		<input type="radio" name="gender" id="g1" value="M" checked><label for="g1">남</label>
-		<input type="radio" name="gender" id="g2" value="F"><label for="g2">여</label>
+		<input type="radio" name="gender" id="g1" value="M" ${student.gender == "M" ? "checked" : ""}><label for="g1">남</label>
+		<input type="radio" name="gender" id="g2" value="F" ${student.gender == "F" ? "checked" : ""}><label for="g2">여</label>
 		<br>
 		<input type="text" name="score" placeholder="평점을 입력하세요" value="${student.score }"><br>
 		<button>수정하기</button>
