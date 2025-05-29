@@ -10,7 +10,7 @@
 <body>
 	<jsp:include page="./template/header.jsp"></jsp:include>
 	<!-- 학번, 이름, 학과명, 성별, 평점 입력받는 폼-->
-	<form action="./insertMajor.do" method="post">
+	<form action="./insertStudent.do" method="post">
 		<input type="text" name="sno" placeholder="학번을 입력하세요"><br>
 		<input type="text" name="sname" placeholder="이름을 입력하세요"><br>
 		<select name="mno">

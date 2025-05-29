@@ -14,11 +14,11 @@ import dto.StudentDTO;
 /**
  * Servlet implementation class InsertMajorServlet
  */
-@WebServlet("/insertMajor.do")
-public class InsertMajorServlet extends HttpServlet {
+@WebServlet("/insertStudent.do")
+public class InsertStudentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public InsertMajorServlet() {
+    public InsertStudentServlet() {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
