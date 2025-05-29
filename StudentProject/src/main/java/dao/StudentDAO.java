@@ -81,6 +81,25 @@ public class StudentDAO {
 		System.out.println(list);
 		return list;
 	}
+
+	public int insertStudent(StudentDTO dto) {
+		int count = 0;
+		String sql = "insert into student(sno,sname,score,gender,mno) values(?,?,?,?,?)";
+		try(PreparedStatement pstmt = 
+				manager.getInstance().getConnection().prepareStatement(sql)){
+			pstmt.setString(1, dto.getSno());
+			pstmt.setString(2, dto.getSname());
+			pstmt.setDouble(3, dto.getScore());
+			pstmt.setString(4, dto.getGender());
+			pstmt.setString(5, dto.getMno());
+			
+			count = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return count;
+	}
 }
 
 

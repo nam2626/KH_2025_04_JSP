@@ -33,6 +33,10 @@ public class StudentService {
 		return dao.selectAllMajor();
 	}
 
+	public int insertStudent(StudentDTO dto) {
+		return dao.insertStudent(dto);
+	}
+
 }
 
 
