@@ -40,6 +40,9 @@ public class CookieServlet extends HttpServlet {
 		ageCookie.setMaxAge(180);
 		response.addCookie(ageCookie);
 		
+		//Application 영역 테스트
+		System.out.println("count : "+request.getServletContext().getAttribute("count"));
+		
 		//페이지 이동 - cookie_result.jsp
 		request.getRequestDispatcher("./cookie_result.jsp").forward(request, response);
 	}
