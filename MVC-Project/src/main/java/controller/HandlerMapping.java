@@ -18,6 +18,9 @@ public class HandlerMapping {
 		case "loginView":
 			controller = new LoginViewController();
 			break;
+		case "login":
+			controller = new LoginController();
+			break;
 		}
 		
 		return controller;
