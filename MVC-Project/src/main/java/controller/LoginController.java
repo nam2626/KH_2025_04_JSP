@@ -25,6 +25,7 @@ public class LoginController implements Controller {
 		//2-2. BoardMemberDTO 결과가 있으면 로그인 성공
 		//2-3. BoardMemberDTO 결과가 없으면 로그인 실패
 		BoardMemberDTO member = BoardMemberService.getInstance().login(id,passwd);
+		System.out.println(member);
 		//3. ModelAndView 생성해서 이동할 페이지 설정
 		if(member == null) {
 			view = new ModelAndView("./loginView.do", true);
