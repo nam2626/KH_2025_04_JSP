@@ -15,7 +15,9 @@ public class HandlerMapping {
 		Controller controller = null;
 		
 		switch(command) {
-		
+		case "loginView":
+			controller = new LoginViewController();
+			break;
 		}
 		
 		return controller;
