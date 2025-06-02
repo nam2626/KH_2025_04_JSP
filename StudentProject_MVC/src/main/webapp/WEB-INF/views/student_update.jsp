@@ -9,7 +9,7 @@
 </head>
 <body>
 	<jsp:include page="./template/header.jsp"></jsp:include>
-	<form action="./updateStudent.do" method="post">
+	<form action="${pageContext.request.contextPath }/updateStudent.do" method="post">
 		<input type="text" name="sno" readonly placeholder="학번을 입력하세요" value="${student.sno }"><br>
 		<input type="text" name="sname" placeholder="이름을 입력하세요" value="${student.sname }"><br>
 		<select name="mno">
