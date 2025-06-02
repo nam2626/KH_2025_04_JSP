@@ -45,6 +45,10 @@ public class StudentService {
 		return dao.updateStudent(dto);
 	}
 
+	public ArrayList<StudentDTO> selectStudentList(String search) {
+		return dao.selectStudentList(search);
+	}
+
 }
 
 

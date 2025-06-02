@@ -13,6 +13,14 @@
 	<h2>학생 정보 리스트</h2>
 	<table>
 		<tr>
+			<td colspan="7">
+				<form action="${pageContext.request.contextPath }/main.do" method="get">
+					<input type="text" name="search" placeholder="검색할 이름 입력하세요" required>
+					<button>검색</button>
+				</form>
+			</td>
+		</tr>
+		<tr>
 			<th>학번</th>
 			<th>이름</th>
 			<th>학과명</th>

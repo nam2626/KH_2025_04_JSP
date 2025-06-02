@@ -13,11 +13,18 @@ public class SelectAllStudentController implements Controller {
 
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		// 1. 서비스 클래스에게 전체 학생 정보를 요청
-		ArrayList<StudentDTO> list = StudentService.getInstance().selectAllStudent();
-		// 2. request 영역에 서비스 클래스로 부터 받은 전체 학생 정보를 저장
+		ArrayList<StudentDTO> list = null;
+		System.out.println(request.getParameter("search"));
+		String search = request.getParameter("search");
+		if(search != null || search.length() != 0) {
+			//1. 검색어가 있는 경우
+			list = StudentService.getInstance().selectStudentList(search);
+		}else {
+			//2. 검색어가 없는 경우
+			list = StudentService.getInstance().selectAllStudent();
+		}
+		//-------------------------------------------
 		request.setAttribute("list", list);
-		// 3. student_list.jsp로 이동해서 학생정보 전체 출력
 		return new ModelAndView("student_list.jsp", false);
 	}
 
