@@ -15,7 +15,9 @@ public class HandlerMapping {
 		Controller controller = null;
 		
 		switch(command) {
-		
+		case "main":
+			controller = new SelectAllStudentController();
+			break;
 		}
 		
 		return controller;
