@@ -27,6 +27,9 @@ public class HandlerMapping {
 		case "insertStudent":
 			controller = new InsertStudentController();
 			break;
+		case "updateView":
+			controller = new UpdateStudentViewController();
+			break;
 		}
 		
 		return controller;
