@@ -9,6 +9,7 @@
 </head>
 <body>
 	<jsp:include page="./template/header.jsp"></jsp:include>
+	<%-- <p>contextPath : ${pageContext.request.contextPath }</p> --%>
 	<h2>학생 정보 리스트</h2>
 	<table>
 		<tr>
@@ -29,9 +30,9 @@
 				<td>${std.score }</td>
 				<td>${std.gender }</td>
 				<td>
-					<a href="./delete.do?sno=${std.sno }">삭제</a>
+					<a href="${pageContext.request.contextPath }/delete.do?sno=${std.sno }">삭제</a>
 					/
-					<a href="./updateView.do?sno=${std.sno }">수정</a>	
+					<a href="${pageContext.request.contextPath }/updateView.do?sno=${std.sno }">수정</a>	
 				</td>
 			</tr>
 		</c:forEach>

@@ -18,6 +18,9 @@ public class HandlerMapping {
 		case "main":
 			controller = new SelectAllStudentController();
 			break;
+		case "delete":
+			controller = new DeleteStudentController();
+			break;
 		}
 		
 		return controller;

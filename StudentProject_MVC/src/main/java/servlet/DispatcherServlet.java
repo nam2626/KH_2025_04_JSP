@@ -25,7 +25,7 @@ public class DispatcherServlet extends HttpServlet {
 		int n = request.getRequestURI().lastIndexOf("/");
 		String command = request.getRequestURI().substring(n + 1).replace(".do", "");
 		System.out.println("command : " + command);
-
+		System.out.println(request.getContextPath());
 		// 작업을 진행
 		Controller controller = HandlerMapping.getInstance().createController(command);
 		ModelAndView view = null;
@@ -36,12 +36,11 @@ public class DispatcherServlet extends HttpServlet {
 		// 페이지 이동처리
 		if (view != null) {
 			if (view.isRedirect()) {
-				response.sendRedirect(view.getPath());
+				//	  http://localhost:8888/StudentProject_MVC/main.do
+				response.sendRedirect(request.getContextPath() + view.getPath());
 			} else {
 				//    /WEB-INF/views/student_list.jsp --> 이동할 경로
-				//	  http://localhost:8888/WEB-INF/views/student_list.jsp
-				//	  http://localhost:8888/StudentProject_MVC/WEB-INF/views/student_list.jsp
-				request.getRequestDispatcher(rootPath + view.getPath()).forward(request, response);
+				request.getRequestDispatcher(rootPath+view.getPath()).forward(request, response);
 			}
 		}
 	}
