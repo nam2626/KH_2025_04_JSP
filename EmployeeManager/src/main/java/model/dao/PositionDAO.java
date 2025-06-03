@@ -38,4 +38,17 @@ public class PositionDAO {
         }
         return list;
     }
+
+	public int insert(PositionDTO dto) {
+		 int result = 0;
+		    String sql = "INSERT INTO position (pno, pname) VALUES (?, ?)";
+		    try (PreparedStatement pstmt = manager.getInstance().getConnection().prepareStatement(sql)) {
+		        pstmt.setString(1, dto.getPosNo());
+		        pstmt.setString(2, dto.getPosName());
+		        result = pstmt.executeUpdate();
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+		    return result;
+	}
 }

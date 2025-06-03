@@ -23,6 +23,11 @@ public class PositionService {
 		return dao.selectAll();
 	}
 
+	public boolean insertPosition(PositionDTO dto) {
+		int result = PositionDAO.getInstance().insert(dto);
+        return result > 0;
+	}
+
 	
 	
 }

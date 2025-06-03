@@ -28,7 +28,7 @@
   <a href="${pageContext.request.contextPath }/main.do">전체 사원 목록 조회</a>
   <a href="${pageContext.request.contextPath }/insertEmployeeView.do">사원정보 추가</a>
   <a href="${pageContext.request.contextPath }/posList.do">전체 직급 목록 조회</a>
-  <a href="#">직급정보 추가</a>
+  <a href="${pageContext.request.contextPath }/posInsertView.do">직급정보 추가</a>
   <a href="${pageContext.request.contextPath }/deptList.do">전체 부서 목록 조회</a>
   <a href="#">부서정보 추가</a>
 </div>
