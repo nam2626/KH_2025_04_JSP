@@ -47,6 +47,23 @@ public class EmployeeDAO {
 		return list;
 	}
 
+	public int insert(EmployeeDTO dto) {
+		 int result = 0;
+	        String sql = "INSERT INTO employee (eno, ename, dno, pno, salary, hiredate) VALUES (?, ?, ?, ?, ?, ?)";
+	        try (PreparedStatement pstmt = manager.getInstance().getConnection().prepareStatement(sql)) {
+	            pstmt.setString(1, dto.getEmpNo());
+	            pstmt.setString(2, dto.getEmpName());
+	            pstmt.setString(3, dto.getDeptNo());
+	            pstmt.setString(4, dto.getPosNo());
+	            pstmt.setInt(5, dto.getSalary());
+	            pstmt.setString(6, dto.getHireDate());
+	            result = pstmt.executeUpdate();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	        return result;
+	}
+
 	
 }
 

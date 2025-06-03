@@ -23,6 +23,11 @@ public class EmployeeService {
 		return dao.selectAll();
 	}
 
+	 public boolean insertEmployee(EmployeeDTO dto) {
+	        int result = EmployeeDAO.getInstance().insert(dto);
+	        return result > 0;
+	    }
+
 	
 	
 }
