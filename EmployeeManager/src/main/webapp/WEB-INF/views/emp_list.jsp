@@ -66,7 +66,7 @@ tr:has(td:empty) td {
 </style>
 </head>
 <body>
-
+	<jsp:include page="./template/header.jsp"></jsp:include>
 	<h2 class="title">전체 사원 목록</h2>
 	<table>
 		<tr>
