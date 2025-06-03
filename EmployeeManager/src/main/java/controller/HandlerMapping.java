@@ -36,6 +36,12 @@ public class HandlerMapping {
 		case "posInsert":
 			controller = new PositionInsertController();
 			break;
+		case "deptInsertView":
+			controller = new DepartmentInsertViewController();
+			break;
+		case "deptInsert":
+			controller = new DepartmentInsertController();
+			break;
 		}
 		
 		return controller;

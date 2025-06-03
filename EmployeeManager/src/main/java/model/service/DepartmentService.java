@@ -23,6 +23,11 @@ public class DepartmentService {
 		return dao.selectAll();
 	}
 
+	public boolean insertDepartment(DepartmentDTO dto) {
+		int result = DepartmentDAO.getInstance().insert(dto);
+        return result > 0;
+	}
+
 	
 	
 }
