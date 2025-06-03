@@ -70,6 +70,8 @@
     </style>
 </head>
 <body>
+	<jsp:include page="./template/header.jsp"></jsp:include>
+
     <div class="container">
         <h2>사원 등록</h2>
         <form action="${pageContext.request.contextPath }/insertEmployee.do" method="post">

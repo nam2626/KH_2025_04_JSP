@@ -24,6 +24,12 @@ public class HandlerMapping {
 		case "insertEmployee":
 			controller = new InsertEmployeeController();
 			break;
+		case "posList":
+			controller = new PositionListController();
+			break;
+		case "deptList":
+		    controller = new DepartmentListController();
+		    break;		    
 		}
 		
 		return controller;
