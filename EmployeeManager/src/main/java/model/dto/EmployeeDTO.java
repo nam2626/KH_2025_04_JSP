@@ -3,21 +3,22 @@ package model.dto;
 public class EmployeeDTO {
 	private String empNo;
 	private String empName;
-	private String deptName;
-	private String posName;
+	private String deptNo;
+	private String posNo;
 	private int salary;
 	private String hireDate;
 
-	public EmployeeDTO(String empNo, String empName, String deptName, String posName, int salary, String hireDate) {
+	public EmployeeDTO() {
+	}
+
+	public EmployeeDTO(String empNo, String empName, String deptNo, String posNo, int salary, String hireDate) {
 		this.empNo = empNo;
 		this.empName = empName;
-		this.deptName = deptName;
-		this.posName = posName;
+		this.deptNo = deptNo;
+		this.posNo = posNo;
 		this.salary = salary;
 		this.hireDate = hireDate;
 	}
-
-	public EmployeeDTO() {	}
 
 	public String getEmpNo() {
 		return empNo;
@@ -35,20 +36,20 @@ public class EmployeeDTO {
 		this.empName = empName;
 	}
 
-	public String getDeptName() {
-		return deptName;
+	public String getDeptNo() {
+		return deptNo;
 	}
 
-	public void setDeptName(String deptName) {
-		this.deptName = deptName;
+	public void setDeptNo(String deptNo) {
+		this.deptNo = deptNo;
 	}
 
-	public String getPosName() {
-		return posName;
+	public String getPosNo() {
+		return posNo;
 	}
 
-	public void setPosName(String posName) {
-		this.posName = posName;
+	public void setPosNo(String posNo) {
+		this.posNo = posNo;
 	}
 
 	public int getSalary() {
@@ -69,8 +70,8 @@ public class EmployeeDTO {
 
 	@Override
 	public String toString() {
-		return "EmployeeDTO [empNo=" + empNo + ", empName=" + empName + ", deptName=" + deptName + ", posName="
-				+ posName + ", salary=" + salary + ", hireDate=" + hireDate + "]";
+		return "EmployeeDTO [empNo=" + empNo + ", empName=" + empName + ", deptNo=" + deptNo + ", posNo=" + posNo
+				+ ", salary=" + salary + ", hireDate=" + hireDate + "]";
 	}
 
 }
