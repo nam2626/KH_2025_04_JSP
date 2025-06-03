@@ -18,6 +18,9 @@ public class HandlerMapping {
 		case "main":
 			controller = new MainController();
 			break;
+		case "insertEmployeeView":
+			controller = new InsertEmployeeViewController();
+			break;
 		}
 		
 		return controller;

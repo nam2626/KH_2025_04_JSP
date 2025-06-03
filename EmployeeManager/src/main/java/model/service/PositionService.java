@@ -1,6 +1,9 @@
 package model.service;
 
+import java.util.List;
+
 import model.dao.PositionDAO;
+import model.dto.PositionDTO;
 
 public class PositionService {
 	private static PositionService instance = new PositionService();
@@ -14,6 +17,10 @@ public class PositionService {
 		if(instance == null)
 			instance = new PositionService();
 		return instance;
+	}
+
+	public List<PositionDTO> getAllPositions() {
+		return dao.selectAll();
 	}
 
 	

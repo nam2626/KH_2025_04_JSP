@@ -1,6 +1,9 @@
 package model.service;
 
+import java.util.List;
+
 import model.dao.DepartmentDAO;
+import model.dto.DepartmentDTO;
 
 public class DepartmentService {
 	private static DepartmentService instance = new DepartmentService();
@@ -14,6 +17,10 @@ public class DepartmentService {
 		if(instance == null)
 			instance = new DepartmentService();
 		return instance;
+	}
+
+	public List<DepartmentDTO> getAllDepartments() {
+		return dao.selectAll();
 	}
 
 	

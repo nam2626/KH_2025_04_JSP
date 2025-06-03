@@ -26,7 +26,7 @@
 
 <div class="navbar">
   <a href="${pageContext.request.contextPath }/main.do">전체 사원 목록 조회</a>
-  <a href="#">사원정보 추가</a>
+  <a href="${pageContext.request.contextPath }/insertEmployeeView.do">사원정보 추가</a>
   <a href="#">전체 직급 목록 조회</a>
   <a href="#">직급정보 추가</a>
   <a href="#">전체 부서 목록 조회</a>
