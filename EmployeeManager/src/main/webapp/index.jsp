@@ -7,7 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>사원 관리 페이지</h2>
-	<a href="./test.do">서블릿 호출</a>
+	<script>
+		location.href="main.do";
+	</script>
 </body>
 </html>

@@ -1,6 +1,9 @@
 package model.service;
 
+import java.util.ArrayList;
+
 import model.dao.EmployeeDAO;
+import model.dto.EmployeeDTO;
 
 public class EmployeeService {
 	private static EmployeeService instance = new EmployeeService();
@@ -14,6 +17,10 @@ public class EmployeeService {
 		if(instance == null)
 			instance = new EmployeeService();
 		return instance;
+	}
+
+	public ArrayList<EmployeeDTO> selectAll() {
+		return dao.selectAll();
 	}
 
 	
