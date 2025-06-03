@@ -16,7 +16,7 @@ public class SelectAllStudentController implements Controller {
 		ArrayList<StudentDTO> list = null;
 		System.out.println(request.getParameter("search"));
 		String search = request.getParameter("search");
-		if(search != null || search.length() != 0) {
+		if(search != null && search.length() != 0) {
 			//1. 검색어가 있는 경우
 			list = StudentService.getInstance().selectStudentList(search);
 		}else {
