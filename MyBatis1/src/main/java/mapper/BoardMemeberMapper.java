@@ -22,6 +22,10 @@ public class BoardMemeberMapper {
 	public List<BoardMemberDTO> selectAllMember(){
 		return manager.getSession().selectList("selectAllMember");
 	}
+
+	public int insertMember(BoardMemberDTO dto) {
+		return manager.getSession().insert("insertMember", dto);		
+	}
 	
 }
 

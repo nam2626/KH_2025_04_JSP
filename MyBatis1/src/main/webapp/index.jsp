@@ -8,7 +8,8 @@
 </head>
 <body>
 	<ul>
-		<li><a  href="./all.do">전체 회원 정보 조회</a></li>
+		<li><a href="./all.do">전체 회원 정보 조회</a></li>
+		<li><a href="./member_insert_view.jsp">회원 정보 등록 페이지</a></li>
 	</ul>
 </body>
 </html>
