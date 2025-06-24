@@ -32,6 +32,7 @@
 			<th>암호</th>
 			<th>이름</th>
 			<th>닉네임</th>
+			<th>기타</th>
 		</tr>
 		<c:forEach var="member" items="${requestScope.list }">
 			<tr>
@@ -39,6 +40,9 @@
 				<td class="passwd">${member.passwd }</td>
 				<td>${member.userName }</td>
 				<td>${member.nickName }</td>
+				<td>
+					<a href="./delete.do?id=${member.id }">삭제</a> 
+				</td>
 			</tr>
 		</c:forEach>		
 	</table>
