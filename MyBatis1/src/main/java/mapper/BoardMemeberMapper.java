@@ -26,6 +26,10 @@ public class BoardMemeberMapper {
 	public int insertMember(BoardMemberDTO dto) {
 		return manager.getSession().insert("insertMember", dto);		
 	}
+
+	public int deleteMember(String id) {
+		return manager.getSession().delete("deleteMember", id);
+	}
 	
 }
 

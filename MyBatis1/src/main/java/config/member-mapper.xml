@@ -11,4 +11,7 @@
   	values(#{id},standard_hash(#{passwd},'SHA512'),#{userName},#{nickName})
   
   </insert>
+  <delete id="deleteMember">
+  	delete from board_member where id like #{id}
+  </delete>
 </mapper>
