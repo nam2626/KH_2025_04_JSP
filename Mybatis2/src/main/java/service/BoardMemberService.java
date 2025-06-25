@@ -1,10 +1,14 @@
 package service;
 
+import config.DBManager;
+import mapper.BoardMemberMapper;
+
 public class BoardMemberService {
 	private static BoardMemberService instance = new BoardMemberService();
-
-	private BoardMemberService() {
+	private BoardMemberMapper mapper;
 	
+	private BoardMemberService() {
+		mapper = DBManager.getInstance().getSession().getMapper(BoardMemberMapper.class);
 	}
 	
 	public static BoardMemberService getInstance() {
