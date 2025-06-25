@@ -1,6 +1,9 @@
 package service;
 
+import java.util.List;
+
 import config.DBManager;
+import dto.BoardMemberDTO;
 import mapper.BoardMemberMapper;
 
 public class BoardMemberService {
@@ -16,4 +19,12 @@ public class BoardMemberService {
 			instance = new BoardMemberService();
 		return instance;
 	}
+
+	public List<BoardMemberDTO> selectAllMember() {
+		return mapper.selectAllMember();
+	}
 }
+
+
+
+

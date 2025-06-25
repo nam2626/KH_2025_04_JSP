@@ -12,7 +12,7 @@ public class DBManager {
 	private static DBManager instance = new DBManager();
 	private SqlSessionFactory sqlSessionFactory ;
 	private DBManager() {
-		String resource = "org/mybatis/example/mybatis-config.xml";
+		String resource = "config/mybatis-config.xml";
 		InputStream inputStream;
 		try {
 			inputStream = Resources.getResourceAsStream(resource);
@@ -21,6 +21,7 @@ public class DBManager {
 			e.printStackTrace();
 		}
 	}
+	
 	public SqlSession getSession() {
 		return sqlSessionFactory.openSession();
 	}

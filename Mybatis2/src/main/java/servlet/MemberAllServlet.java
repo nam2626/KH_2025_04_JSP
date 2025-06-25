@@ -1,16 +1,15 @@
 package servlet;
 
+import java.io.IOException;
+import java.util.List;
+
+import dto.BoardMemberDTO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import mapper.BoardMemeberMapper;
-
-import java.io.IOException;
-import java.util.List;
-
-import dto.BoardMemberDTO;
+import service.BoardMemberService;
 
 /**
  * Servlet implementation class MemberAllServlet
@@ -23,7 +22,7 @@ public class MemberAllServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//BoardMemberMapper 클래스에서 전체 회원정보를 받아오기
-		List<BoardMemberDTO> list = BoardMemeberMapper.getInstance().selectAllMember();
+		List<BoardMemberDTO> list = BoardMemberService.getInstance().selectAllMember();
 		
 		request.setAttribute("list", list);
 		
