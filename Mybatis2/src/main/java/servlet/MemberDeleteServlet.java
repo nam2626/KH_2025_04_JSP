@@ -7,6 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import service.BoardMemberService;
 
 /**
  * Servlet implementation class MemberDeleteServlet
@@ -20,9 +21,9 @@ public class MemberDeleteServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		String id = request.getParameter("id");
-//		BoardMemeberMapper.getInstance().deleteMember(id);
-//		response.sendRedirect("./all.do");
+		String id = request.getParameter("id");
+		BoardMemberService.getInstance().deleteMember(id);
+		response.sendRedirect("./all.do");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

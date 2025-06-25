@@ -7,5 +7,6 @@ import dto.BoardMemberDTO;
 public interface BoardMemberMapper {
 
 	List<BoardMemberDTO> selectAllMember();
+	int deleteMember(String id);
 
 }
