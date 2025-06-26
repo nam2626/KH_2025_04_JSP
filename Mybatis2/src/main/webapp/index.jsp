@@ -5,6 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	ul{
+		list-style-type: none;
+	}
+</style>
 </head>
 <body>
 	<ul>
