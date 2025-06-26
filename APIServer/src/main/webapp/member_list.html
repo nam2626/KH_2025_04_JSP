@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = () => {
+		document.querySelector('button').onclick = () => {
+			fetch('./all.do')
+			.then(result => {
+				return result.json();
+			})
+			.then(data => {
+				console.log(data);
+				let tag = '';
+				data.list.forEach(item => {
+					tag += `
+						<tr>
+							<td>${item.id}</td>
+							<td>${item.passwd}</td>
+							<td>${item.userName}</td>
+							<td>${item.nickName}</td>
+						</tr>`;
+				});
+				tag = `<table>
+					<tr>
+						<th>아이디</th>
+						<th>암호</th>
+						<th>이름</th>
+						<th>닉네임</th>
+					</tr>${tag}</table>`;
+				document.querySelector('#area').innerHTML = tag;
+			})
+		}
+	}
+</script>
+</head>
+<body>
+	<button type="button">회원정보 로드</button>
+	<hr>
+	<div id="area"></div>
+</body>
+</html>
