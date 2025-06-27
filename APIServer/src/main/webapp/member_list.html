@@ -51,6 +51,8 @@
 			const data = await response.json();
 			//데이터 결과를 출력
 			console.log(data);
+			if(data.count == 1)
+				allMember();
 		}catch(error){
 			console.log(error);
 		}

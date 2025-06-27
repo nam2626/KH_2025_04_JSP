@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.apache.tomcat.util.json.JSONParser;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -46,7 +47,13 @@ public class MemberAllServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//Stream API이용해서 한번 본문 내용 읽어오기
+		//기존 방법
+//		String requestBody = new String();
+//		String str = "";
+//		while((str = req.getReader().readLine()) != null) {
+//			requestBody += str;
+//		}
+		//1.8 이후 방법 : Stream API이용해서 한번 본문 내용 읽어오기
 		String requestBody =
 				req.getReader().lines().collect(
 						Collectors.joining(System.lineSeparator()));
@@ -57,10 +64,24 @@ public class MemberAllServlet extends HttpServlet {
 		System.out.println(json.getString("passwd"));
 		System.out.println(json.getString("userName"));
 		System.out.println(json.getString("nickName"));
+		String id = json.getString("id");
+		String passwd = json.getString("passwd");
+		String userName = json.getString("userName");
+		String nickName = json.getString("nickName");
 		//마이바티스로 데이터 추가하고 추가한 결과를 클라이언트에게 전달
 		//sql 결과가 1 이면 메세지 : 회원정보 등록 완료
 		//          0 이면 메세지 : 회원정보 등록 실패
+		BoardMemberDTO dto = new BoardMemberDTO(id, passwd, userName, nickName);
 		
+		int count = BoardMemberService.getInstance().insertMember(dto);
+		JSONObject result = new JSONObject();
+		result.put("count", count);
+		if(count == 1) {
+			result.put("msg", "회원정보 등록 성공");
+		}else {
+			result.put("msg", "회원정보 등록 실패");
+		}
+		resp.getWriter().println(result);
 	}
 
 
