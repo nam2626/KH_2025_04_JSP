@@ -19,7 +19,7 @@ import service.BoardMemberService;
 /**
  * Servlet implementation class MemberAllServlet
  */
-@WebServlet("/all.do")
+@WebServlet("/members")
 public class MemberAllServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

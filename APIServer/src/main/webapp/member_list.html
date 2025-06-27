@@ -4,40 +4,84 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
-	window.onload = () => {
-		document.querySelector('button').onclick = () => {
-			fetch('./all.do')
-			.then(result => {
-				return result.json();
-			})
-			.then(data => {
-				console.log(data);
-				let tag = '';
-				data.list.forEach(item => {
-					tag += `
-						<tr>
-							<td>${item.id}</td>
-							<td>${item.passwd}</td>
-							<td>${item.userName}</td>
-							<td>${item.nickName}</td>
-						</tr>`;
-				});
-				tag = `<table>
+	function allMember() {
+		fetch('./members')
+		.then(result => {
+			return result.json();
+		})
+		.then(data => {
+			console.log(data);
+			let tag = '';
+			data.list.forEach(item => {
+				tag += `
 					<tr>
-						<th>아이디</th>
-						<th>암호</th>
-						<th>이름</th>
-						<th>닉네임</th>
-					</tr>${tag}</table>`;
-				document.querySelector('#area').innerHTML = tag;
-			})
-		}
+						<td>${item.id}</td>
+						<td class='passwd'>${item.passwd}</td>
+						<td>${item.userName}</td>
+						<td>${item.nickName}</td>
+					</tr>`;
+			});
+			tag = `<table>
+				<tr>
+					<th>아이디</th>
+					<th class='passwd'>암호</th>
+					<th>이름</th>
+					<th>닉네임</th>
+				</tr>${tag}</table>`;
+			document.querySelector('#area').innerHTML = tag;
+		})
+	}
+	function insertMember() {
+		const formData = {};
+		
+		const fields = document.querySelectorAll('.frm_insert > input');
+		fields.forEach((item) => {
+			formData[item.id] = item.value;
+		});
+		console.log(formData);
+	}
+	window.onload = () => {
+		allMember();
+		document.querySelector('.btn_register').onclick = insertMember;
 	}
 </script>
+<style>
+	table{
+		margin: 0 auto;
+		border-collapse: collapse;
+		table-layout: fixed;
+		width: 1000px;
+	}	
+	td,th{
+		border: 1px solid black;
+		padding: 10px;
+		text-align: center;
+	}
+	.frm_insert{
+		text-align: center;
+	}
+	.passwd{
+		width: 400px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+</style>
 </head>
 <body>
-	<button type="button">회원정보 로드</button>
+	<!-- 회원정보 추가하는 폼 -->
+	<div class="frm_insert">
+		<input type="text" id="id" placeholder="아이디 입력">
+		<input type="password" id="passwd" placeholder="암호 입력">
+		<input type="text" id="userName" placeholder="사용자 이름 입력">
+		<input type="text" id="nickName" placeholder="사용자 닉네임 입력">
+		<button type="button" class="btn_register">등록</button>
+	</div>
 	<hr>
 	<div id="area"></div>
 </body>
 </html>
+
+
+
+
