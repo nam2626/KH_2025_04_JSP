@@ -31,7 +31,7 @@
 			document.querySelector('#area').innerHTML = tag;
 		})
 	}
-	function insertMember() {
+	async function insertMember() {
 		const formData = {};
 		
 		const fields = document.querySelectorAll('.frm_insert > input');
@@ -39,6 +39,21 @@
 			formData[item.id] = item.value;
 		});
 		console.log(formData);
+		try{
+			const response = await fetch('./members',{
+				method : 'POST',
+				headers:{
+					'Content-Type' : 'application/json',
+					'Accept' : 'application/json'
+				},
+				body: JSON.stringify(formData)
+			});
+			const data = await response.json();
+			//데이터 결과를 출력
+			console.log(data);
+		}catch(error){
+			console.log(error);
+		}
 	}
 	window.onload = () => {
 		allMember();
