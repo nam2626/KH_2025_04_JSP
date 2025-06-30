@@ -105,6 +105,29 @@ public class MemberAllServlet extends HttpServlet {
 		resp.getWriter().println(json);
 	}
 	
+	@Override
+	protected void doPatch(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String requestBody =
+				req.getReader().lines().collect(
+						Collectors.joining(System.lineSeparator()));
+		System.out.println(requestBody);
+		//JSON으로 파싱 후 회원정보를 등록
+		JSONObject json = new JSONObject(requestBody);
+		String id = json.getString("id");
+		String passwd = json.getString("password");
+		String userName = json.getString("userName");
+		String nickName = json.getString("nickName");
+		
+		int count = BoardMemberService.getInstance().updateMember(
+				new BoardMemberDTO(id, passwd, userName, nickName));
+		json = new JSONObject();
+		json.put("count", count);
+		if(count == 1) json.put("message", "해당 데이터 수정을 완료했습니다.");
+		else json.put("message", "해당 데이터 수정을 실패했습니다.");
+		
+		resp.getWriter().println(json);
+		
+	}
 	
 }
 

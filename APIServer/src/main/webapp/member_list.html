@@ -54,10 +54,33 @@
 						formData[item.className] = item.value;
 					});
 					console.log(formData);
+					//데이터 수정하는 ajax 호출
+					//method : PATCH
+					updateMember(formData);
 				}
 			})
 			
 		})
+	}
+	async function updateMember(member) {
+		try {
+			const response = await fetch(`./members/${member.id}`,{
+				method : 'PATCH',
+				headers:{
+					'Content-Type' : 'application/json',
+					'Accept' : 'application/json'
+				},
+				body: JSON.stringify(member)
+			});
+			const data = response.json();
+			console.log(data);
+			if(response.ok){
+				alert(data.message);
+				allMember();
+			}
+		} catch (error) {
+			console.log(error);
+		}
 	}
 	async function deleteMember(id) {
 		try {
