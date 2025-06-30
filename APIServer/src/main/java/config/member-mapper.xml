@@ -15,4 +15,22 @@
   <delete id="deleteMember">
   	delete from board_member where id like #{id}
   </delete>
+  
+  <update id="updateMember">
+	update board_member set username = #{userName}, nickName = #{nickName}, 
+	passwd = standard_hash(#{passwd},'SHA512')
+	where id like #{id}
+  </update>
+  <update id="updateMember2" parameterType="map">
+	update board_member set username = #{userName}, nickName = #{nickName}, 
+	passwd = standard_hash(#{password},'SHA512')
+	where id like #{id}
+  </update>
 </mapper>
+
+
+
+
+
+
+

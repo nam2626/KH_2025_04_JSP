@@ -1,6 +1,9 @@
 package service;
 
 import java.util.List;
+import java.util.Map;
+
+import org.json.JSONObject;
 
 import config.DBManager;
 import dto.BoardMemberDTO;
@@ -30,6 +33,15 @@ public class BoardMemberService {
 
 	public int insertMember(BoardMemberDTO dto) {
 		return mapper.insertMember(dto);
+	}
+
+	public int updateMember(BoardMemberDTO dto) {
+		return mapper.updateMember(dto);
+	}
+
+	public int updateMember(Map<String, Object> map) {
+		System.out.println(map.toString());
+		return mapper.updateMember2(map);
 	}
 }
 

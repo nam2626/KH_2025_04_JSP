@@ -118,13 +118,16 @@ public class MemberAllServlet extends HttpServlet {
 		String userName = json.getString("userName");
 		String nickName = json.getString("nickName");
 		
+		//방법 1
 		int count = BoardMemberService.getInstance().updateMember(
 				new BoardMemberDTO(id, passwd, userName, nickName));
-		json = new JSONObject();
+		//방법 2
+//		int count = BoardMemberService.getInstance().updateMember(json.toMap());
+//		json = new JSONObject();
 		json.put("count", count);
 		if(count == 1) json.put("message", "해당 데이터 수정을 완료했습니다.");
 		else json.put("message", "해당 데이터 수정을 실패했습니다.");
-		
+		System.out.println(json.toString());
 		resp.getWriter().println(json);
 		
 	}
