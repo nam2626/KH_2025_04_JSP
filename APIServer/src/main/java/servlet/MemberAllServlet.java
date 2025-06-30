@@ -92,11 +92,17 @@ public class MemberAllServlet extends HttpServlet {
 		String id = req.getPathInfo().substring(1);
 		
 		//데이터 삭제 처리
-		
+		int count = BoardMemberService.getInstance().deleteMember(id);
 		//삭제 성공 했을 때, 해당 데이터 삭제를 완료했습니다.
-		
-		//삭제 실패 했을 때, 해당 데이터 삭제를 실패하였습니다.
-		
+		JSONObject json = new JSONObject();
+		json.put("count", count);
+		if(count == 1) {
+			json.put("message", "해당 데이터 삭제를 완료했습니다.");
+		}else {
+			//삭제 실패 했을 때, 해당 데이터 삭제를 실패하였습니다.
+			json.put("message", "해당 데이터 삭제를 실패했습니다.");
+		}
+		resp.getWriter().println(json);
 	}
 	
 	
