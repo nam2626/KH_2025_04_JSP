@@ -26,6 +26,24 @@
 	passwd = standard_hash(#{password},'SHA512')
 	where id like #{id}
   </update>
+  <select id="searchMember" resultType="dto.BoardMemberDTO">
+  	select * from board_member
+  	<choose>
+  		<when test="kind == 'id'">
+  			where id = #{search}
+  		</when>
+  		<when test="kind == 'userName'">
+  			where username like #{search}
+  		</when>
+  		<otherwise>
+  			where nickname like '%' || #{search} || '%'
+  		</otherwise>
+  	</choose>
+  </select>
+  <select id="searchMember2" resultType="dto.BoardMemberDTO">
+  	select * from board_member
+	where ${kind} like '%' || #{search} || '%'
+  </select>
 </mapper>
 
 

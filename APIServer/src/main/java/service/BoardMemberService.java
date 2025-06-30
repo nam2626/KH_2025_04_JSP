@@ -45,7 +45,8 @@ public class BoardMemberService {
 	}
 
 	public List<BoardMemberDTO> searchMember(Map<String, Object> map) {
-		return mapper.searchMember(map);
+//		return mapper.searchMember(map);
+		return mapper.searchMember2(map);
 	}
 }
 
