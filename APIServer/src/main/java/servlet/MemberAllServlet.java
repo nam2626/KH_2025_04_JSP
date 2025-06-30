@@ -21,7 +21,7 @@ import service.BoardMemberService;
 /**
  * Servlet implementation class MemberAllServlet
  */
-@WebServlet("/members")
+@WebServlet("/members/*")
 public class MemberAllServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -84,7 +84,20 @@ public class MemberAllServlet extends HttpServlet {
 		resp.getWriter().println(result);
 	}
 
-
+	@Override
+	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//PathVariable 뽑는 방법
+		System.out.println(req.getPathInfo().substring(1));
+//		System.out.println(req.getPathInfo().replace("/", ""));
+		String id = req.getPathInfo().substring(1);
+		
+		//데이터 삭제 처리
+		
+		//삭제 성공 했을 때, 해당 데이터 삭제를 완료했습니다.
+		
+		//삭제 실패 했을 때, 해당 데이터 삭제를 실패하였습니다.
+		
+	}
 	
 	
 }
