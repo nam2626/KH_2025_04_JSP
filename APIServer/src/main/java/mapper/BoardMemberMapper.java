@@ -3,8 +3,6 @@ package mapper;
 import java.util.List;
 import java.util.Map;
 
-import org.json.JSONObject;
-
 import dto.BoardMemberDTO;
 
 public interface BoardMemberMapper {
@@ -14,5 +12,6 @@ public interface BoardMemberMapper {
 	int insertMember(BoardMemberDTO dto);
 	int updateMember(BoardMemberDTO dto);
 	int updateMember2(Map<String, Object> map);
+	List<BoardMemberDTO> searchMember(Map<String, Object> map);
 
 }

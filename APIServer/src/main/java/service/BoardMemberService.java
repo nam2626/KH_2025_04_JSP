@@ -43,6 +43,10 @@ public class BoardMemberService {
 		System.out.println(map.toString());
 		return mapper.updateMember2(map);
 	}
+
+	public List<BoardMemberDTO> searchMember(Map<String, Object> map) {
+		return mapper.searchMember(map);
+	}
 }
 
 
