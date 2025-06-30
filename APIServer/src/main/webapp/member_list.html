@@ -44,6 +44,7 @@
 							.firstElementChild.innerText)
 				}
 			}) 
+			//수정 버튼을 클릭하면 해당 줄에 있는 모든 input 태그의 값을 뽑아서 콘솔로 출력
 		})
 	}
 	async function deleteMember(id) {
@@ -91,11 +92,6 @@
 	window.onload = () => {
 		allMember();
 		document.querySelector('.btn_register').onclick = insertMember;
-		document.querySelectorAll('.btn_delete').forEach(item => {
-			item.onclick = (e) => {
-				console.log(e.target.parentNode.parentNode);
-			}
-		}) 
 	}
 </script>
 <style>
@@ -118,6 +114,15 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
+	}
+	td > input {
+		width: 100%;
+		box-sizing: border-box;
+		border: none;
+		outline: none;
+	}
+	td:has(input:focus),td > input:focus{
+		background-color: gold;	
 	}
 </style>
 </head>
