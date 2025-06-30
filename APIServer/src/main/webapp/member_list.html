@@ -15,11 +15,11 @@
 			data.list.forEach(item => {
 				tag += `
 					<tr>
-						<td>${item.id}</td>
-						<td class='passwd'>${item.passwd}</td>
-						<td>${item.userName}</td>
-						<td>${item.nickName}</td>
-						<td><a class='btn_delete'>삭제</a></td>
+						<td><input type='text' value='${item.id}' readonly></td>
+						<td class='passwd'><input type='text' value='${item.passwd}'></td>
+						<td><input type='text' value='${item.userName}'></td>
+						<td><input type='text' value='${item.nickName}'></td>
+						<td><a class='btn_delete'>삭제</a> / <a class='btn_update'>수정</a></td>
 					</tr>`;
 			});
 			tag = `<table>
