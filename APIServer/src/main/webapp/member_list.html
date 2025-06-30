@@ -19,6 +19,7 @@
 						<td class='passwd'>${item.passwd}</td>
 						<td>${item.userName}</td>
 						<td>${item.nickName}</td>
+						<td><a class='btn_delete'>삭제</a></td>
 					</tr>`;
 			});
 			tag = `<table>
@@ -27,10 +28,40 @@
 					<th class='passwd'>암호</th>
 					<th>이름</th>
 					<th>닉네임</th>
+					<th>비고</th>
 				</tr>${tag}</table>`;
 			document.querySelector('#area').innerHTML = tag;
+			//------------------------------------------------
+			// 동적 엘리먼트 처리
+			//   새로 태그가 만들어지면 기존에 설정했던 이벤트가 적용 되지 않음
+			//	 태그가 새로 출력이 된 다음에 이벤트를 다시 지정을 해야됨
+			document.querySelectorAll('.btn_delete').forEach(item => {
+				item.onclick = (e) => {
+					//삭제를 클릭한 아이디값
+					console.log(e.target.parentNode.parentNode
+							.firstElementChild.innerText);
+					deleteMember(e.target.parentNode.parentNode
+							.firstElementChild.innerText)
+				}
+			}) 
 		})
 	}
+	async function deleteMember(id) {
+		try {
+			const response = await fetch(`./members/${id}`,{
+				method : 'DELETE'
+			});
+			const data = await response.json();
+			console.log(data);
+			if(response.ok){
+				alert(data.message);
+				// allMember();
+			}
+		} catch (error) {
+			console.log(error);
+		}
+		
+	}	
 	async function insertMember() {
 		const formData = {};
 		
@@ -60,6 +91,11 @@
 	window.onload = () => {
 		allMember();
 		document.querySelector('.btn_register').onclick = insertMember;
+		document.querySelectorAll('.btn_delete').forEach(item => {
+			item.onclick = (e) => {
+				console.log(e.target.parentNode.parentNode);
+			}
+		}) 
 	}
 </script>
 <style>
