@@ -64,14 +64,9 @@ public class NaverBlogSearchMain2 {
             URL url = new URL(apiURL);
             con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
-
-            Map<String, String> requestHeaders = new HashMap<>();
-            requestHeaders.put("X-Naver-Client-Id", clientId);
-            requestHeaders.put("X-Naver-Client-Secret", clientSecret);
-
-            for (Map.Entry<String, String> header : requestHeaders.entrySet()) {
-                con.setRequestProperty(header.getKey(), header.getValue());
-            }
+            //헤더 셋팅 - 인증정보
+            con.setRequestProperty("X-Naver-Client-Id", clientId);
+            con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
 
             int responseCode = con.getResponseCode();
             InputStream responseStream;
