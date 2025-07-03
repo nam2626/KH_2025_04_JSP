@@ -18,6 +18,13 @@
 	<select id="selectAllBoard" resultMap="board">
 		select * from board_view	
 	</select> 	
+	<select id="selectBoardList" resultMap="board">
+		select * from
+		    (select row_number() over(order by bv.bno desc) as rw, bv.* 
+		    from board_view bv)
+		where ceil(rw / #{pageContentEa}) = #{pageNo}
+	</select>
+	
 </mapper>
 
 
