@@ -1,0 +1,49 @@
+@charset "UTF-8";
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.board-container {
+    width: 1200px;
+    background-color: #fff;
+    padding: 20px 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* 열 너비 지정 */
+th:nth-child(1), td:nth-child(1) { width: 80px; }   /* 글번호 */
+th:nth-child(2), td:nth-child(2) { width: 400px; text-align: left; } /* 제목 */
+th:nth-child(3), td:nth-child(3) { width: 120px; }  /* 작성자 */
+th:nth-child(4), td:nth-child(4) { width: 150px; }  /* 작성일 */
+th:nth-child(5), td:nth-child(5) { width: 80px; }   /* 조회수 */
+th:nth-child(6), td:nth-child(6) { width: 80px; }   /* 좋아요 */
+th:nth-child(7), td:nth-child(7) { width: 80px; }   /* 싫어요 */
+
+
+thead th {
+    background-color: #f0f0f0;
+    padding: 12px;
+    border-bottom: 2px solid #ccc;
+    text-align: center;
+    font-weight: bold;
+}
+
+tbody td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+tbody tr:hover {
+    background-color: #f9f9f9;
+}
