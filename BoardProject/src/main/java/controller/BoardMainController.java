@@ -13,6 +13,9 @@ public class BoardMainController implements Controller {
 
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		//사용자가 클릭한 페이지 번호를 받아서 조회, 단 페이지 번호가 없으면 1로 지정
+		//페이지 번호 파라미터 명 : page
+		
 		
 		//게시글 리스트 받음
 		List<BoardDTO> list = BoardService.getInstance().selectAllBoard();
