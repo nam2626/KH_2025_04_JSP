@@ -1,6 +1,8 @@
 package service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import config.DBManager;
 import dto.BoardDTO;
@@ -24,6 +26,13 @@ public class BoardService {
 
 	public List<BoardDTO> selectAllBoard() {
 		return mapper.selectAllBoard();
+	}
+
+	public List<BoardDTO> selectBoardList(int pageNo, int pageContentEa) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("pageNo", pageNo);
+		map.put("pageContentEa", pageContentEa);
+		return mapper.selectBoardList(map);
 	}
 	
 }
