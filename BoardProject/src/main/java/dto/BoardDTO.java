@@ -10,11 +10,13 @@ public class BoardDTO {
 	private int boardHate;
 	private String content;
 	private String writeDate;
+	private int commentCount;
 
-	public BoardDTO() {	}
+	public BoardDTO() {
+	}
 
 	public BoardDTO(int bno, String title, String id, String nickName, int boardCount, int boardLike, int boardHate,
-			String content, String writeDate) {
+			String content, String writeDate, int commentCount) {
 		super();
 		this.bno = bno;
 		this.title = title;
@@ -25,6 +27,15 @@ public class BoardDTO {
 		this.boardHate = boardHate;
 		this.content = content;
 		this.writeDate = writeDate;
+		this.commentCount = commentCount;
+	}
+
+	public int getCommentCount() {
+		return commentCount;
+	}
+
+	public void setCommentCount(int commentCount) {
+		this.commentCount = commentCount;
 	}
 
 	public int getBno() {
@@ -105,5 +116,5 @@ public class BoardDTO {
 				+ boardCount + ", boardLike=" + boardLike + ", boardHate=" + boardHate + ", content=" + content
 				+ ", writeDate=" + writeDate + "]";
 	}
-	
+
 }
