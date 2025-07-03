@@ -15,7 +15,9 @@ public class HandlerMapping {
 		Controller controller = null;
 		
 		switch(command) {
-		
+		case "boardMain":
+			controller = new BoardMainController();
+			break;
 		}
 		
 		return controller;

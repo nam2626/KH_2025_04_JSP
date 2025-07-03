@@ -24,8 +24,8 @@ public class DispatcherServlet extends HttpServlet {
 		// 사용자가 요청한 경로
 		int n = request.getRequestURI().lastIndexOf("/");
 		String command = request.getRequestURI().substring(n + 1).replace(".do", "");
-		System.out.println("command : " + command);
-		System.out.println(request.getContextPath());
+//		System.out.println("command : " + command);
+//		System.out.println(request.getContextPath());
 		// 작업을 진행
 		Controller controller = HandlerMapping.getInstance().createController(command);
 		ModelAndView view = null;
