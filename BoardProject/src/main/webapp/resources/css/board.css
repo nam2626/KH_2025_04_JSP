@@ -47,3 +47,36 @@ tbody td {
 tbody tr:hover {
     background-color: #f9f9f9;
 }
+
+.pagging_bar {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.pagging_bar a {
+    display: inline-block;
+    margin: 0 6px;
+    padding: 6px 12px;
+    text-decoration: none;
+    color: #333;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.pagging_bar a:hover {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+/* 선택된 페이지 강조 (선택 상태를 서버에서 class 부여해야 함) */
+.pagging_bar a.active {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+    pointer-events: none; /* 클릭 불가능 처리 */
+}
+

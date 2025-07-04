@@ -55,7 +55,14 @@
 					  -->
 					  <c:forEach var="i" begin="${pagging.startPageOfPageGroup }" 
 					  								end="${pagging.endPageOfPageGroup }">
-            			<a href="./boardMain.do?page=${i }">${i }</a>
+					  	<c:choose>
+						  	<c:when test="${i == pagging.currentPage }">
+						  		<a href="./boardMain.do?page=${i }" class="active">${i }</a>
+						  	</c:when>
+						  	<c:otherwise>
+	            				<a href="./boardMain.do?page=${i }">${i }</a>
+	            			</c:otherwise>
+					  	</c:choose>
 					  </c:forEach>
 						 <!--
 							다음 페이지 그룹으로 이동 
