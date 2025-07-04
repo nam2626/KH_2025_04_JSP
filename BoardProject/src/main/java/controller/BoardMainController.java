@@ -33,6 +33,8 @@ public class BoardMainController implements Controller {
 //		List<BoardDTO> list = BoardService.getInstance().selectAllBoard();
 		List<BoardDTO> list = BoardService.getInstance()
 				.selectBoardList(pageNo, pageContentEa);
+		//PaggingVO 생성
+		
 		
 		//request 영역에 게시글 목록 저장
 		request.setAttribute("list", list);
