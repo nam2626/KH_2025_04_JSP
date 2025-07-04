@@ -62,6 +62,9 @@
 							
 							isNextPageGroup getEndPageOfPageGroup
 						 -->
+						 <c:if test="${pagging.nextPageGroup }">
+						 	<a href="./boardMain.do?page=${pagging.endPageOfPageGroup + 1 }">▶</a>      
+						 </c:if>
             		</td>
             	</tr>
             </tfoot>
