@@ -34,6 +34,10 @@ public class BoardService {
 		map.put("pageContentEa", pageContentEa);
 		return mapper.selectBoardList(map);
 	}
+
+	public int selectBoardTotalCount() {
+		return mapper.selectBoardTotalCount();
+	}
 	
 }
 

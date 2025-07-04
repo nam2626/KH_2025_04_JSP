@@ -24,7 +24,9 @@
 		    from board_view bv)
 		where ceil(rw / #{pageContentEa}) = #{pageNo}
 	</select>
-	
+	<select id="selectBoardTotalCount" resultType="int">
+		select count(*) from board_view
+	</select>
 </mapper>
 
 

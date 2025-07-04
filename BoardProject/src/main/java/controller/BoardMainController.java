@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import service.BoardService;
 import view.ModelAndView;
+import vo.PaggingVO;
 
 public class BoardMainController implements Controller {
 
@@ -34,8 +35,11 @@ public class BoardMainController implements Controller {
 		List<BoardDTO> list = BoardService.getInstance()
 				.selectBoardList(pageNo, pageContentEa);
 		//PaggingVO 생성
-		
-		
+		//전체 게시글 개수를 받아옴
+		int count = BoardService.getInstance().selectBoardTotalCount();
+		PaggingVO pagging = new PaggingVO(count, pageNo, pageContentEa);
+		request.setAttribute("pagging", pagging);
+				
 		//request 영역에 게시글 목록 저장
 		request.setAttribute("list", list);
 		
