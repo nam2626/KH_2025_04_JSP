@@ -10,6 +10,7 @@
 </head>
 <body>
     <div class="board-container">
+    	<jsp:include page="./template/header.jsp"></jsp:include>
         <table>
             <thead>
                 <tr>
