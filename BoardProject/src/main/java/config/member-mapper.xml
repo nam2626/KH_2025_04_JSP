@@ -15,4 +15,13 @@
   <delete id="deleteMember">
   	delete from board_member where id like #{id}
   </delete>
+  
+	<select id="login" resultType="dto.BoardMemberDTO">
+		select * from board_member 
+		where id like #{id} and passwd like standard_hash(#{passwd},'SHA512')
+	</select>  
 </mapper>
+
+
+
+

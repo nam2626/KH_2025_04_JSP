@@ -21,6 +21,12 @@ public class HandlerMapping {
 		case "boardWriteView":
 			controller = new BoardWriteViewController();
 			break;
+		case "loginView":
+			controller = new LoginViewController();
+			break;
+		case "login":
+			controller = new LoginController();
+			break;
 		}
 		
 		return controller;
