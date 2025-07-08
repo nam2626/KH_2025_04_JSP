@@ -1,6 +1,7 @@
 package servlet;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,6 +14,7 @@ import controller.Controller;
 import controller.HandlerMapping;
 
 @WebServlet("*.do")
+@MultipartConfig(maxFileSize = 1024 * 1024 * 5, maxRequestSize = 1024 * 1024 * 50)
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String rootPath = "/WEB-INF/views/";
