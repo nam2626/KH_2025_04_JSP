@@ -6,6 +6,7 @@ import java.util.Map;
 
 import config.DBManager;
 import dto.BoardDTO;
+import dto.BoardFileDTO;
 import mapper.BoardMapper;
 
 public class BoardService {
@@ -37,6 +38,18 @@ public class BoardService {
 
 	public int selectBoardTotalCount() {
 		return mapper.selectBoardTotalCount();
+	}
+
+	public int selectBoardNo() {
+		return mapper.selectBoardNo();
+	}
+
+	public int insertBoard(BoardDTO board) {
+		return mapper.insertBoard(board);
+	}
+
+	public int insertBoardFile(List<BoardFileDTO> fList) {
+		return mapper.insertBoardFile(fList);
 	}
 	
 }
