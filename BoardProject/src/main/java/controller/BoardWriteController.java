@@ -59,12 +59,12 @@ public class BoardWriteController implements Controller {
 		} catch (ServletException e) {
 			e.printStackTrace();
 		}
-		
-		
-		
-		
-		
 		//게시글 등록 처리(첨부파일까지 DB에 저장 처리)
+		//1. 글번호 뽑음
+		
+		//2. 게시판 테이블에 등록 작업
+		
+		//3. 게시판 파일 테이블에 등록 작업 
 		
 		//작성 글 확인하는 페이지로 이동(임시로 전체 조회하는 페이지로 이동)
 		
