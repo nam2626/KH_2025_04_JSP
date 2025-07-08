@@ -72,6 +72,8 @@ public class BoardWriteController implements Controller {
 		board.setId(id);
 		BoardService.getInstance().insertBoard(board);
 		//3. 게시판 파일 테이블에 등록 작업 
+		//글번호 추가
+		fList.forEach(item -> item.setBno(bno));
 		BoardService.getInstance().insertBoardFile(fList);		
 		//작성 글 확인하는 페이지로 이동(임시로 전체 조회하는 페이지로 이동)
 		return new ModelAndView("/boardMain.do", true);
