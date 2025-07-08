@@ -13,6 +13,7 @@ public interface BoardMapper {
 	int selectBoardTotalCount();
 	int selectBoardNo();
 	int insertBoard(BoardDTO board);
-	int insertBoardFile(List<BoardFileDTO> fList);
+//	int insertBoardFile(List<BoardFileDTO> fList);
+	int insertBoardFile(BoardFileDTO item);
 
 }

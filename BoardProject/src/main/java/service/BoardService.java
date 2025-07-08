@@ -48,8 +48,8 @@ public class BoardService {
 		return mapper.insertBoard(board);
 	}
 
-	public int insertBoardFile(List<BoardFileDTO> fList) {
-		return mapper.insertBoardFile(fList);
+	public void insertBoardFile(List<BoardFileDTO> fList) {
+		fList.forEach(item -> mapper.insertBoardFile(item));
 	}
 	
 }

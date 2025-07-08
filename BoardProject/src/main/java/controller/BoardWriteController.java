@@ -44,7 +44,7 @@ public class BoardWriteController implements Controller {
 //				System.out.println(part.getName());
 //				System.out.println(part.getSize());
 //				System.out.println(part.getSubmittedFileName());
-				if(part.getSubmittedFileName().isEmpty() || part.getSize() == 0) return;
+				if(part.getSubmittedFileName() == null || part.getSize() == 0) return;
 				//파일 쓰기하는 메서드, 저장할 파일 전체경로
 				try {
 					String path = root.getAbsolutePath() + "\\" + part.getSubmittedFileName();

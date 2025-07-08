@@ -35,12 +35,8 @@
 		values(#{id},#{bno},#{title},#{content})
 	</insert>
 	<insert id="insertBoardFile">
-		insert all
-		<foreach collection="list" item="file" separator=" ">
-		into board_file(fno, bno, fpath)
-		values(seq_board_file_fno.nextval, #{file.bno},#{file.fpath})
-		</foreach>
-		select * from dual
+		insert into board_file(fno, bno, fpath)
+		values(seq_board_file_fno.nextval, #{bno},#{fpath})
 	</insert>
 	
 </mapper>
