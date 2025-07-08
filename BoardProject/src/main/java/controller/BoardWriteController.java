@@ -1,8 +1,11 @@
 package controller;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import dto.BoardMemberDTO;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import view.ModelAndView;
@@ -22,14 +25,40 @@ public class BoardWriteController implements Controller {
 		System.out.println(title + "\n" + content + "\n" + id);
 		
 		//파일 업로드 처리
-		
 		//파일 업로드할 경로가 있는지 체크, 없으면 해당 경로를 생성
+		File root = new File("c:\\fileupload");
+		if(!root.exists()) {
+			System.out.println("파일 업로드할 폴더 생성");
+			root.mkdirs();
+		}		
+		//업로할 파일 리스트
 		
-		//업로드할 파일 정보를 읽어옴
+		try {
+			//업로드할 파일 정보를 읽어옴
+			request.getParts().forEach(part -> {
+//				파일쓰기
+//				System.out.println(part.getName());
+//				System.out.println(part.getSize());
+//				System.out.println(part.getSubmittedFileName());
+				if(part.getSubmittedFileName().isEmpty() || part.getSize() == 0) return;
+				//파일 쓰기하는 메서드, 저장할 파일 전체경로
+				try {
+					part.write(root.getAbsolutePath() + "\\" + part.getSubmittedFileName());
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+//				BoardFileDTO 생성 후 리스트로 관리
+				
+			});
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ServletException e) {
+			e.printStackTrace();
+		}
 		
-		//	파일쓰기
 		
-		//	BoardFileDTO 생성 후 리스트로 관리
+		
+		
 		
 		//게시글 등록 처리(첨부파일까지 DB에 저장 처리)
 		

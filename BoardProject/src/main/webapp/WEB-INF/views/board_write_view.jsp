@@ -14,7 +14,7 @@
 	        el: document.querySelector('#editor'),
 	        previewStyle: 'vertical',
 	        height: '500px',
-	        initialValue: '이곳에 내용을 입력하세요'
+	        initialEditType : 'wysiwyg'
 	      });
 
 //		console.log(editor.getMarkdown());
