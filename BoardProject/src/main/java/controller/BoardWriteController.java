@@ -5,11 +5,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import dto.BoardDTO;
 import dto.BoardFileDTO;
 import dto.BoardMemberDTO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import service.BoardService;
 import view.ModelAndView;
 
 public class BoardWriteController implements Controller {
@@ -61,14 +63,18 @@ public class BoardWriteController implements Controller {
 		}
 		//게시글 등록 처리(첨부파일까지 DB에 저장 처리)
 		//1. 글번호 뽑음
-		
+		int bno = BoardService.getInstance().selectBoardNo();
 		//2. 게시판 테이블에 등록 작업
-		
+		BoardDTO board = new BoardDTO();
+		board.setBno(bno);
+		board.setTitle(title);
+		board.setContent(content);
+		board.setId(id);
+		BoardService.getInstance().insertBoard(board);
 		//3. 게시판 파일 테이블에 등록 작업 
-		
+		BoardService.getInstance().insertBoardFile(fList);		
 		//작성 글 확인하는 페이지로 이동(임시로 전체 조회하는 페이지로 이동)
-		
-		return null;
+		return new ModelAndView("/boardMain.do", true);
 	}
 
 	
