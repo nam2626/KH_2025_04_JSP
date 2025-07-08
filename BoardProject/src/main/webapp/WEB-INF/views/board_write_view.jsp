@@ -19,8 +19,9 @@
 //		console.log(editor.getMarkdown());
 		console.log(editor.getHTML());
 		document.querySelector('form').onsubmit = (e) => {
-			e.preventDefault();
+			//e.preventDefault();
 			console.log(editor.getHTML());	
+			document.querySelector('#content').value = editor.getHTML(); 
 		}
 	}
 </script>
@@ -32,6 +33,7 @@
 		<form action="./boardWrite.do" method="post" enctype="multipart/form-data">
 			<input type="text" name="title" placeholder="제목을 입력하세요">
 			<div id="editor"></div>
+			<input type="hidden" name="content" id="content">
 			<hr>
 			<input type="file" name="file"><br>
 			<input type="file" name="file"><br>
