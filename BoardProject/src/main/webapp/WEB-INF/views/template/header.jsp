@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <style>
 /* nav 바 전체 스타일 */
 nav {
@@ -54,9 +55,16 @@ nav ul li a.active {
 <nav>
 	<ul>
 		<li><a href="./boardMain.do">홈</a></li>
-		<li><a href="./boardWriteView.do">글쓰기</a></li>
-		<li><a href="./loginView.do">로그인</a></li>
-		<li><a href="./registerView.do">회원가입</a></li>
+		<c:if test="${sessionScope.user == null }">
+			<li><a href="./loginView.do">로그인</a></li>
+			<li><a href="./registerView.do">회원가입</a></li>
+		</c:if>
+		<c:if test="${sessionScope.user != null }">
+			<li><a href="./boardWriteView.do">글쓰기</a></li>
+			<li>${sessionScope.user.nickName }님이 로그인하셨습니다.</li>
+			<li><a href="./logout.do">로그아웃</a></li>
+		</c:if>
+		
 	</ul>
 </nav>
 
