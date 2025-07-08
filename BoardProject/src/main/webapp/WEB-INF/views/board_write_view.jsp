@@ -16,8 +16,12 @@
 	        initialValue: '이곳에 내용을 입력하세요'
 	      });
 
-		console.log(editor.getMarkdown());
+//		console.log(editor.getMarkdown());
 		console.log(editor.getHTML());
+		document.querySelector('form').onsubmit = (e) => {
+			e.preventDefault();
+			console.log(editor.getHTML());	
+		}
 	}
 </script>
 </head>
@@ -28,6 +32,10 @@
 		<form action="./boardWrite.do" method="post" enctype="multipart/form-data">
 			<input type="text" name="title" placeholder="제목을 입력하세요">
 			<div id="editor"></div>
+			<hr>
+			<input type="file" name="file"><br>
+			<input type="file" name="file"><br>
+			<input type="file" name="file">
 			<hr>
 			<button>글쓰기</button>
 			<button type="button" onclick="history.back();">뒤로가기</button>
