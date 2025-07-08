@@ -3,7 +3,9 @@ package controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
+import dto.BoardFileDTO;
 import dto.BoardMemberDTO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -32,7 +34,7 @@ public class BoardWriteController implements Controller {
 			root.mkdirs();
 		}		
 		//업로할 파일 리스트
-		
+		List<BoardFileDTO> fList = new ArrayList<BoardFileDTO>();
 		try {
 			//업로드할 파일 정보를 읽어옴
 			request.getParts().forEach(part -> {
@@ -43,11 +45,13 @@ public class BoardWriteController implements Controller {
 				if(part.getSubmittedFileName().isEmpty() || part.getSize() == 0) return;
 				//파일 쓰기하는 메서드, 저장할 파일 전체경로
 				try {
-					part.write(root.getAbsolutePath() + "\\" + part.getSubmittedFileName());
+					String path = root.getAbsolutePath() + "\\" + part.getSubmittedFileName();
+					part.write(path);
+//					BoardFileDTO 생성 후 리스트로 관리
+					fList.add(new BoardFileDTO(0, 0, path));
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-//				BoardFileDTO 생성 후 리스트로 관리
 				
 			});
 		} catch (IOException e) {
