@@ -27,7 +27,7 @@
                 <c:forEach var="board" items="${requestScope.list}">
                     <tr>
                         <td>${board.bno}</td>
-                        <td>${board.title}</td>
+                        <td><a href="./boardView.do?bno=${board.bno }">${board.title}</a></td>
                         <td>${board.nickName}</td>
                         <td>${board.writeDate}</td>
                         <td>${board.boardCount}</td>
