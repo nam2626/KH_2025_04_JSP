@@ -49,6 +49,9 @@
 	<select id="selectBoardFileList" resultType="dto.BoardFileDTO">
 		select * from board_file where bno = #{bno}
 	</select>
+	<select id="selectBoardFile" resultType="dto.BoardFileDTO">
+		select * from board_file where fno = #{fno}
+	</select>
 </mapper>
 
 

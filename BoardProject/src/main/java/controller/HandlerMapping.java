@@ -33,6 +33,9 @@ public class HandlerMapping {
 		case "boardView":
 			controller = new BoardViewController();
 			break;
+		case "fileDown":
+			controller = new BoardFileDownController();
+			break;
 		}
 		
 		return controller;
