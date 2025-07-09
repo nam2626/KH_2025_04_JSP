@@ -34,7 +34,8 @@ public class BoardViewController implements Controller {
 		
 		//해당 게시글 첨부파일 목록 조회
 		
-		return null;
+		request.setAttribute("board", board);
+		return new ModelAndView("board_view.jsp", false);
 	}
 
 }

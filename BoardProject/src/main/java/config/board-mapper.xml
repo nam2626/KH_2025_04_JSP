@@ -38,8 +38,21 @@
 		insert into board_file(fno, bno, fpath)
 		values(seq_board_file_fno.nextval, #{bno},#{fpath})
 	</insert>
-	
+	<update id="updateBoardCount">
+		update board set bcount = bcount + 1
+		where bno = #{bno}
+	</update>
+	<select id="selectBoard" resultMap="board">
+		select * from board_view
+		where bno = #{bno}
+	</select>
 </mapper>
+
+
+
+
+
+
 
 
 

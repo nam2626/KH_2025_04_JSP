@@ -51,6 +51,14 @@ public class BoardService {
 	public void insertBoardFile(List<BoardFileDTO> fList) {
 		fList.forEach(item -> mapper.insertBoardFile(item));
 	}
+
+	public int updateBoardCount(int bno) {
+		return mapper.updateBoardCount(bno);
+	}
+
+	public BoardDTO selectBoard(int bno) {
+		return mapper.selectBoard(bno);
+	}
 	
 }
 
