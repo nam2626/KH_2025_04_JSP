@@ -38,6 +38,7 @@ public class BoardViewController implements Controller {
 		List<BoardFileDTO> flist = BoardService.getInstance().selectBoardFileList(bno);
 		
 		request.setAttribute("board", board);
+		request.setAttribute("flist", flist);
 		return new ModelAndView("board_view.jsp", false);
 	}
 

@@ -19,6 +19,11 @@
 			${board.content }
 		</div>
 		<div>
+			<c:forEach var="file" items="${flist }">
+				<a href="./fileDown.do?fno=${file.fno }">${file.fileName }</a><br>
+			</c:forEach>
+		</div>
+		<div>
 			<a href="javascript:history.back();">뒤로가기</a>
 			
 			<c:if test="${sessionScope.user != null && sessionScope.user.id == board.id }">

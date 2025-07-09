@@ -46,6 +46,9 @@
 		select * from board_view
 		where bno = #{bno}
 	</select>
+	<select id="selectBoardFileList" resultType="dto.BoardFileDTO">
+		select * from board_file where bno = #{bno}
+	</select>
 </mapper>
 
 
