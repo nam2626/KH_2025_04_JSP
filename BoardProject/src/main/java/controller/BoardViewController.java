@@ -2,8 +2,10 @@ package controller;
 
 import java.io.IOException;
 import java.util.HashSet;
+import java.util.List;
 
 import dto.BoardDTO;
+import dto.BoardFileDTO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -33,6 +35,7 @@ public class BoardViewController implements Controller {
 		//해당 게시글 댓글 목록 조회
 		
 		//해당 게시글 첨부파일 목록 조회
+		List<BoardFileDTO> flist = BoardService.getInstance().selectBoardFileList(bno);
 		
 		request.setAttribute("board", board);
 		return new ModelAndView("board_view.jsp", false);
