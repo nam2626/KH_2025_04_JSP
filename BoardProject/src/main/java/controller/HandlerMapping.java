@@ -36,6 +36,9 @@ public class HandlerMapping {
 		case "fileDown":
 			controller = new BoardFileDownController();
 			break;
+		case "boardCommentInsert":
+			controller = new BoardCommentWriteController();
+			break;
 		}
 		
 		return controller;
