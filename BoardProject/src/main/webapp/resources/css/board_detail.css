@@ -188,3 +188,25 @@ hr { /* board.css의 hr이 아니라 상세 페이지의 hr에만 적용 */
 .comment-actions { /* 댓글 액션 버튼을 담는 div */
     text-align: right;
 }
+
+.content_like_hate{
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;	
+}
+
+.btn_content_like,.btn_content_hate{
+    display: flex;
+    flex-flow: column;
+    gap: 5px;
+    width: 70px;
+    padding: 5px 15px;
+}
+
+.btn_content_hate > img{
+	transform: rotateZ(180deg);
+}
+
+
+
+

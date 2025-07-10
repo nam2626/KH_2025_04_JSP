@@ -14,10 +14,20 @@
 		<hr>
 		<h3 class="board-title">제목 : ${board.title }</h3> <%-- 제목에 클래스 적용 --%>
 		<p class="board-meta-info">작성자 : ${board.nickName }, 작성일 : ${board.writeDate }</p> <%-- 메타 정보에 클래스 적용 --%>
-		<p class="board-meta-info">조회수 : ${board.boardCount}, 좋아요 : ${board.boardLike }, 
-		싫어요 : ${board.boardHate }</p> <%-- 메타 정보에 클래스 적용 --%>
+		<p class="board-meta-info">조회수 : ${board.boardCount}</p> <%-- 메타 정보에 클래스 적용 --%>
 		<div class="content">
 			${board.content }
+		</div>
+		<div class="content_like_hate">
+			<!-- 좋아요 싫어요 버튼 작성 -->
+			<button type="button" class="btn_content_like">
+				<img src="./resources/img/like_icon.png">
+				<span>${board.boardLike }</span>
+			</button>
+			<button type="button" class="btn_content_hate">
+				<img src="./resources/img/like_icon.png">
+				<span>${board.boardHate }</span>
+			</button>
 		</div>
 		<div class="file-downloads"> <%-- 파일 다운로드 링크들을 묶는 div에 클래스 추가 --%>
 			<c:forEach var="file" items="${flist }">
