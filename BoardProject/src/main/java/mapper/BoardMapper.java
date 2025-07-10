@@ -3,6 +3,7 @@ package mapper;
 import java.util.List;
 import java.util.Map;
 
+import dto.BoardCommentDTO;
 import dto.BoardDTO;
 import dto.BoardFileDTO;
 
@@ -19,5 +20,9 @@ public interface BoardMapper {
 	BoardDTO selectBoard(int bno);
 	List<BoardFileDTO> selectBoardFileList(int bno);
 	BoardFileDTO selectBoardFile(int fno);
+	List<BoardCommentDTO> selectBoardCommentList(Map<String, Object> map);
 
 }
+
+
+

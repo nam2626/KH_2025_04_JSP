@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import config.DBManager;
+import dto.BoardCommentDTO;
 import dto.BoardDTO;
 import dto.BoardFileDTO;
 import mapper.BoardMapper;
@@ -66,6 +67,13 @@ public class BoardService {
 
 	public BoardFileDTO selectBoardFile(int fno) {
 		return mapper.selectBoardFile(fno);
+	}
+
+	public List<BoardCommentDTO> selectBoardCommentList(int bno, int i) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("bno", bno);
+		map.put("page", i);
+		return mapper.selectBoardCommentList(map);
 	}
 	
 }

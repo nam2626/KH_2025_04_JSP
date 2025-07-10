@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 
+import dto.BoardCommentDTO;
 import dto.BoardDTO;
 import dto.BoardFileDTO;
 import jakarta.servlet.http.HttpServletRequest;
@@ -33,12 +34,13 @@ public class BoardViewController implements Controller {
 		//게시글 조회
 		BoardDTO board = BoardService.getInstance().selectBoard(bno);
 		//해당 게시글 댓글 목록 조회
-		
+		List<BoardCommentDTO> clist = BoardService.getInstance().selectBoardCommentList(bno, 1);
 		//해당 게시글 첨부파일 목록 조회
 		List<BoardFileDTO> flist = BoardService.getInstance().selectBoardFileList(bno);
 		
 		request.setAttribute("board", board);
 		request.setAttribute("flist", flist);
+		request.setAttribute("clist", clist);
 		return new ModelAndView("board_view.jsp", false);
 	}
 
