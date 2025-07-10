@@ -7,6 +7,29 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="./resources/css/board_detail.css"> 
+<script>
+	window.onload = () => {
+		document.querySelector('.btn_content_like').onclick = async (e) => {
+			const bno = ${board.bno};
+			console.log(bno);
+			try{
+				const response = await fetch(`./boardLike.do?bno=\${bno}`);
+				const data = await response.json();
+				
+				alert(data.msg);
+				console.log(data);
+				//좋아요, 싫어요 버튼에 숫자 최신화
+				document.querySelector('.btn_content_like').innerHTML = data.blike;
+				document.querySelector('.btn_content_hate').innerHTML = data.bhate;
+				
+			}catch(error){
+				console.log(error);
+			}
+			
+			
+		}
+	}
+</script>
 </head>
 <body>
 	<div class="board-container"> <%-- 최상위 div에 board.css의 .board-container 클래스 적용 --%>

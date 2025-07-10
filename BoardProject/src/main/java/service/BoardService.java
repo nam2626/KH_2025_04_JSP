@@ -79,6 +79,17 @@ public class BoardService {
 	public int insertBoardComment(BoardCommentDTO comment) {
 		return mapper.insertBoardComment(comment);
 	}
+
+	public int insertBoardLike(int bno, String id) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("bno", bno);
+		map.put("id", id);
+		return mapper.insertBoardLike(map);
+	}
+
+	public Map<String, Object> selectBoardLikeHateCount(int bno) {
+		return mapper.selectBoardLikeHateCount(bno);
+	}
 	
 }
 

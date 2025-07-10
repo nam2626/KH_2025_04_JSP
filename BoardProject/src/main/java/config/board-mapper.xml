@@ -64,7 +64,16 @@
 		insert into board_comment(cno,bno,id, content)
 		values(seq_board_comment_cno.nextval, #{bno},#{id},#{content})
 	</insert>
-	
+	<insert id="insertBoardLike">
+		insert into board_content_like(bno, id)
+		values(#{bno},#{id})
+	</insert>
+	<select id="selectBoardLikeHateCount" resultType="map">
+		select 
+			(select count(*) from board_content_like where bno = #{bno}) as blike,
+			(select count(*) from board_content_hate where bno = #{bno}) as bhate
+		from dual
+	</select>
 </mapper>
 
 
