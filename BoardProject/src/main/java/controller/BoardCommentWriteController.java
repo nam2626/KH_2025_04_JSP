@@ -2,9 +2,11 @@ package controller;
 
 import java.io.IOException;
 
+import dto.BoardCommentDTO;
 import dto.BoardMemberDTO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import service.BoardService;
 import view.ModelAndView;
 
 public class BoardCommentWriteController implements Controller {
@@ -21,6 +23,12 @@ public class BoardCommentWriteController implements Controller {
 		
 		System.out.println(bno + " " + content + " " + id);
 		
+		BoardCommentDTO comment = new BoardCommentDTO();
+		comment.setBno(bno);
+		comment.setContent(content);
+		comment.setId(id);
+		
+		BoardService.getInstance().insertBoardComment(comment);		
 		
 		return new ModelAndView("/boardView.do?bno="+bno, true);
 	}

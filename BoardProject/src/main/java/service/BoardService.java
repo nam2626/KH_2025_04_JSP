@@ -75,6 +75,10 @@ public class BoardService {
 		map.put("page", i);
 		return mapper.selectBoardCommentList(map);
 	}
+
+	public int insertBoardComment(BoardCommentDTO comment) {
+		return mapper.insertBoardComment(comment);
+	}
 	
 }
 

@@ -21,6 +21,7 @@ public interface BoardMapper {
 	List<BoardFileDTO> selectBoardFileList(int bno);
 	BoardFileDTO selectBoardFile(int fno);
 	List<BoardCommentDTO> selectBoardCommentList(Map<String, Object> map);
+	int insertBoardComment(BoardCommentDTO comment);
 
 }
 

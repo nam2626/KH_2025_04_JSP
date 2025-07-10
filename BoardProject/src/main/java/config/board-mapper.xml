@@ -60,6 +60,11 @@
 			where rw <= #{page} * 5 
 		]]>
 	</select>
+	<insert id="insertBoardComment">
+		insert into board_comment(cno,bno,id, content)
+		values(seq_board_comment_cno.nextval, #{bno},#{id},#{content})
+	</insert>
+	
 </mapper>
 
 
