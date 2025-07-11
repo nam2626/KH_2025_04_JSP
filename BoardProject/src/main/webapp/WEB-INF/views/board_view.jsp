@@ -62,8 +62,8 @@
                 	alert(data.msg);
                 	console.log(data);
                 	//좋아요, 싫어요 버튼에 숫자 최신화
-                	e.target.closest('.comment').querySelector('.btn_comment_like').innerHTML = data.count;	
-                	e.target.closest('.comment').querySelector('.btn_comment_hate').innerHTML = data.count;	
+                	e.target.closest('.comment').querySelector('.btn_comment_like').innerHTML = `좋아요 : \${data.count.CLIKE}`;	
+                	e.target.closest('.comment').querySelector('.btn_comment_hate').innerHTML = `싫어요 : \${data.count.CHATE}`;
                 }catch(error){
                 	console.log(error);
                 }

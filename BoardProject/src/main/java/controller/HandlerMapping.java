@@ -3,18 +3,19 @@ package controller;
 public class HandlerMapping {
 	private static HandlerMapping instance = new HandlerMapping();
 
-	private HandlerMapping() {	}
+	private HandlerMapping() {
+	}
 
 	public static HandlerMapping getInstance() {
-		if(instance == null)
+		if (instance == null)
 			instance = new HandlerMapping();
 		return instance;
 	}
 
 	public Controller createController(String command) {
 		Controller controller = null;
-		
-		switch(command) {
+
+		switch (command) {
 		case "boardMain":
 			controller = new BoardMainController();
 			break;
@@ -45,15 +46,15 @@ public class HandlerMapping {
 		case "boardHate":
 			controller = new BoardHateController();
 			break;
+		case "boardCommentLike":
+			controller = new BoardCommentLikeController();
+			break;
+		case "boardCommentHate":
+			controller = new BoardCommentHateController();
+			break;
 		}
-		
+
 		return controller;
 	}
-	
-	
-	
+
 }
-
-
-
-
