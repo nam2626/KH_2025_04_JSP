@@ -43,6 +43,34 @@
                 console.log(error);
             }
         }
+		document.querySelectorAll('.btn_comment_like,.btn_comment_hate').forEach(item => {
+			item.onclick = async (e) => {
+				console.log(e.target.className);	
+				const cno = e.target.closest('.comment').querySelector('input[name="cno"]').value;
+                console.log(cno);
+                let url = '';
+                if(e.target.className == 'btn_comment_like'){
+                	url = `./boardCommentLike.do?cno=${cno}`;
+                }else{
+                	url = `./boardCommentHate.do?cno=${cno}`;
+                }
+                
+                try{
+                	const response = await fetch(url);
+                	const data = await response.json();
+                	
+                	alert(data.msg);
+                	console.log(data);
+                	//좋아요, 싫어요 버튼에 숫자 최신화
+                	e.target.closest('.comment').querySelector('.btn_comment_like').innerHTML = data.count;	
+                	e.target.closest('.comment').querySelector('.btn_comment_hate').innerHTML = data.count;	
+                }catch(error){
+                	console.log(error);
+                }
+			}	
+		});
+		
+		
 		
 	}
 </script>
@@ -105,8 +133,8 @@
 					<ul>
 						<li>작성자 : ${comment.nickName }</li>
 						<li>작성일 : ${comment.cdate }</li>	
-						<li>좋아요 : ${comment.clike }</li>
-						<li>싫어요 : ${comment.chate }</li>
+						<li><a class="btn_comment_like">좋아요 : ${comment.clike }</a></li>
+						<li><a class="btn_comment_hate">싫어요 : ${comment.chate }</a></li>
 					</ul>
 					<p>${comment.content }</p>
 					<div class="comment-actions"> <%-- 댓글 액션 버튼들을 묶는 div에 클래스 추가 --%>
