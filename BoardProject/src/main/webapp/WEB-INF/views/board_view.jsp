@@ -50,9 +50,9 @@
                 console.log(cno);
                 let url = '';
                 if(e.target.className == 'btn_comment_like'){
-                	url = `./boardCommentLike.do?cno=${cno}`;
+                	url = `./boardCommentLike.do?cno=\${cno}`;
                 }else{
-                	url = `./boardCommentHate.do?cno=${cno}`;
+                	url = `./boardCommentHate.do?cno=\${cno}`;
                 }
                 
                 try{

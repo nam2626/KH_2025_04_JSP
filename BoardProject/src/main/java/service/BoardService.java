@@ -110,6 +110,22 @@ public class BoardService {
 		map.put("id", id);
 		return mapper.deleteBoardHate(map);		
 	}
+
+	public int insertBoardCommentLike(int cno, String id) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("cno", cno);
+		map.put("id", id);
+		return mapper.insertBoardCommentLike(map);
+	}
+	public int deleteBoardCommentLike(int cno, String id) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("cno", cno);
+		map.put("id", id);
+		return mapper.deleteBoardCommentLike(map);
+	}
+	public Map<String, Object> selectBoardCommentLikeHateCount(int cno) {
+		return mapper.selectBoardCommentLikeHateCount(cno);
+	}
 }
 
 
