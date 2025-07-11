@@ -28,13 +28,21 @@ public class BoardLikeController implements Controller {
 			return null;
 		}
 		
-		BoardService.getInstance().insertBoardLike(bno, member.getId());
+		try {
+			BoardService.getInstance().insertBoardLike(bno, member.getId());
+			json.put("resultCode", 1);
+			json.put("msg", "해당 게시글에 좋아요 하셨습니다.");
+		} catch (Exception e) {
+			//좋아요 취소
+			BoardService.getInstance().deleteBoardLike(bno, member.getId());
+			json.put("resultCode", 1);
+			json.put("msg", "해당 게시글에 좋아요를 취소하셨습니다.");
+		}finally {
+			Map<String, Object> map = BoardService.getInstance().selectBoardLikeHateCount(bno);
+			System.out.println(map);
+			json.put("count", new JSONObject(map));
+		}
 		
-		Map<String, Object> map = BoardService.getInstance().selectBoardLikeHateCount(bno);
-		System.out.println(map);
-		json.put("count", new JSONObject(map));
-		json.put("resultCode", 1);
-		json.put("msg", "해당 게시글에 좋아요 하셨습니다.");
 		response.getWriter().println(json);
 		return null;
 	}

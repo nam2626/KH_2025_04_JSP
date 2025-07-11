@@ -90,6 +90,13 @@ public class BoardService {
 	public Map<String, Object> selectBoardLikeHateCount(int bno) {
 		return mapper.selectBoardLikeHateCount(bno);
 	}
+
+	public int deleteBoardLike(int bno, String id) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("bno", bno);
+		map.put("id", id);
+		return mapper.deleteBoardLike(map);		
+	}
 	
 }
 

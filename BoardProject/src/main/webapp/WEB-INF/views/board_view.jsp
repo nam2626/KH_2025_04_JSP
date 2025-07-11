@@ -19,8 +19,8 @@
 				alert(data.msg);
 				console.log(data);
 				//좋아요, 싫어요 버튼에 숫자 최신화
-				document.querySelector('.btn_content_like').innerHTML = data.blike;
-				document.querySelector('.btn_content_hate').innerHTML = data.bhate;
+				document.querySelector('.btn_content_like > span').innerHTML = data.count.BLIKE;
+				document.querySelector('.btn_content_hate > span').innerHTML = data.count.BHATE;
 				
 			}catch(error){
 				console.log(error);
