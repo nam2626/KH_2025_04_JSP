@@ -25,9 +25,25 @@
 			}catch(error){
 				console.log(error);
 			}
-			
-			
 		}
+		document.querySelector('.btn_content_hate').onclick = async (e) => {
+            const bno = ${board.bno};
+            console.log(bno);
+            try{
+                const response = await fetch(`./boardHate.do?bno=\${bno}`);
+                const data = await response.json();
+                
+                alert(data.msg);
+                console.log(data);
+                //좋아요, 싫어요 버튼에 숫자 최신화
+                document.querySelector('.btn_content_like > span').innerHTML = data.count.BLIKE;
+                document.querySelector('.btn_content_hate > span').innerHTML = data.count.BHATE;
+                
+            }catch(error){
+                console.log(error);
+            }
+        }
+		
 	}
 </script>
 </head>
